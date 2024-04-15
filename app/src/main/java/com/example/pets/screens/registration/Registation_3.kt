@@ -17,7 +17,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pets.R
-import com.example.pets.logic.asynkClass.createNewUser.Data
 import com.example.pets.navigation.NavRoute
 import com.example.pets.ui.theme.PetsTheme
 
@@ -65,7 +64,7 @@ fun Registration_3(navController: NavController){
             Button(onClick = {
 
                 if(Name.length>=3){
-                    Data.name=Name
+                    //Data.name=Name
                     navController.navigate(NavRoute.Registration_4.route)
                 }
 

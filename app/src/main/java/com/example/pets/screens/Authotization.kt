@@ -24,7 +24,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pets.R
-import com.example.pets.logic.asynkClass.createNewUser.SignIn
+
 
 import com.example.pets.navigation.NavRoute
 import com.example.pets.pets
@@ -136,9 +136,9 @@ fun Authotization(navController: NavController) {
 
                 Button(
                     onClick = {
-                        SignIn(email = email, password = password, navController, context)
-                        //navController.navigate(NavRoute.Shoping.route)
-                        //visibility = true
+//                        SignIn(email = email, password = password, navController, context)
+//                        //navController.navigate(NavRoute.Shoping.route)
+//                        //visibility = true
 
                     },
 

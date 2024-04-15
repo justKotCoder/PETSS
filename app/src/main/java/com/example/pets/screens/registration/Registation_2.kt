@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pets.R
-import com.example.pets.logic.asynkClass.createNewUser.Data
 import com.example.pets.navigation.NavRoute
 import com.example.pets.ui.theme.PetsTheme
 import com.example.pets.viewModel.Registration2_ViewModel
@@ -107,15 +106,15 @@ fun Registration_2(navController: NavController,viewModel: Registration2_ViewMod
                 modifier = Modifier.padding(top=8.dp))
             Button(onClick = {
                 Log.d("Egor2",viewModel.Code.value.toString())
-                Log.d("Egor2",Data.code.toString())
+//                Log.d("Egor2",Data.code.toString())
 
 
-                if(Data.code==viewModel.Code.value) {
-                    navController.navigate(NavRoute.Registration_3.route)
-                }
-                else{
-                    viewModel.Error.value=true
-                }
+//                if(Data.code==viewModel.Code.value) {
+//                    navController.navigate(NavRoute.Registration_3.route)
+//                }
+//                else{
+//                    viewModel.Error.value=true
+//                }
             },
                 shape = RoundedCornerShape(20.dp),
                 colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.icon), contentColor = Color.Black),
