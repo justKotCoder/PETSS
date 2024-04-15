@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="Font">#4FABDF</color>
+    <color name="teni">#80F5925B</color>
+
+
+
+    <color name="gray">#D9D9D9</color>
+    <color name="icon">#349BD6</color>
+    <color name="Font_Main">#1F349BD6</color>
+    <color name="color_1">#0A4C71</color>
+
+    <color name="color_tema">#033957</color>
+    <color name="Error">#FFD6D6</color>
+    //Общие
+    <color name="bar">#353535</color>
+    <color name="font_edit">#99000000</color>
+    //Tema 1
+    <color name="fon">#99349BD6</color>
+    <color name="Activ_Button">#349BD6</color>
+    <color name="color_text">#0A4C71</color>
+    <color name="Pynctir">#B2349BD6</color>
+    <color name="colorWindowPets">#F271BAE3</color>
+    <color name="colorTextField">#D9D9D980</color>
+</resources>
