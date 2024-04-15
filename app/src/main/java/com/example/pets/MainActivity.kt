@@ -3,7 +3,6 @@ package com.example.pets
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
@@ -12,22 +11,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
-import com.example.pets._class.*
-import com.example.pets.amir.Test
-import com.example.pets.amir._class1.User1
-import com.example.pets.amir._class1.Users
-import com.example.pets.amir._class1.загр
-import com.example.pets.amir.navig.NavHost
-import com.example.pets.navigation.NavRoute
 import com.example.pets.navigation.PetsNavHost
-
-import com.example.pets.screens.Main
-import com.example.pets.screens.Registration_3
-import com.example.pets.screens.shop.Shoping_Tovar
 import com.example.pets.ui.theme.PetsTheme
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

@@ -22,8 +22,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pets.R
-import com.example.pets.amir.firebase.addUsers
-import com.example.pets.logic.asynkClass.createNewUser.Data
 import com.example.pets.navigation.NavRoute
 import com.example.pets.ui.theme.PetsTheme
 
@@ -137,8 +135,8 @@ fun Registration_4(navController: NavController){
 
 
                 if(password==copy_password &&password.length>8 ){
-                    Data.password=password
-                    addUsers(Data.email, Data.password,context)
+//                    Data.password=password
+//                    addUsers(Data.email, Data.password,context)
 
                     navController.run { navigate(NavRoute.Start_Passpoer.route){popUpTo(0)}
                     }

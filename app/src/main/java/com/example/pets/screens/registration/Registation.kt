@@ -19,8 +19,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pets.R
-import com.example.pets.logic.asynkClass.FunSendMess.sendNessage
-import com.example.pets.logic.asynkClass.createNewUser.Data
 import com.example.pets.navigation.NavRoute
 
 import com.example.pets.ui.theme.PetsTheme
@@ -65,8 +63,8 @@ fun Registration(@PreviewParameter(PreviewParameterProvider::class)navController
                 modifier = Modifier.fillMaxWidth()
             )
             Button(onClick = {
-                Data.email=email
-                Data.code=sendNessage(email)
+//                Data.email=email
+//                Data.code=sendNessage(email)
                 navController.navigate(NavRoute.Registration_2.route)
             },
                 shape = RoundedCornerShape(20.dp),
