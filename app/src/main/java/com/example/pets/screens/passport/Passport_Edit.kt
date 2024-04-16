@@ -25,7 +25,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pets.R
 import com.example.pets.ui.theme.PetsTheme
-import com.example.pets.viewModel.Passport_Edit_ViewModel
 import androidx.lifecycle.viewmodel.compose.*
 import com.example.pets.navigation.NavRoute
 import com.example.pets.screens.general.PassportBar
@@ -45,7 +44,7 @@ class Pets() {
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter", "StateFlowValueCalledInComposition")
 @Composable
-fun Passport_Edit(navController: NavController, pets1: Pets, viewModel: Passport_Edit_ViewModel= viewModel()){
+fun Passport_Edit(navController: NavController, pets1: Pets){
 
 //    val Name_Petz: String by viewModel.Nickname.collectAsState()
 
@@ -144,8 +143,8 @@ fun Passport_Edit(navController: NavController, pets1: Pets, viewModel: Passport
                     }
                     PassportBar(navController)
                 }
-                Ctroka_3(viewModel)
-                Ctroka_4(viewModel )
+                Ctroka_3()
+                Ctroka_4()
                 Column(
                     Modifier
                         .padding(top = 24.dp)
@@ -291,7 +290,7 @@ fun Passport_Edit(navController: NavController, pets1: Pets, viewModel: Passport
 }
 
 @Composable
-fun Ctroka_3 (viewModel:Passport_Edit_ViewModel){
+fun Ctroka_3 (){
     var visibility by remember {
         mutableStateOf(false)
     }
@@ -402,7 +401,7 @@ fun Ctroka_3 (viewModel:Passport_Edit_ViewModel){
 
 
 @Composable
-fun Ctroka_4(viewModel: Passport_Edit_ViewModel){
+fun Ctroka_4(){
 //    val Harackter by viewModel.Harackter.collectAsState()
 //    val OpicHaracket by viewModel.OpicHaracket.collectAsState()
     val openDialog = remember { mutableStateOf(false) }

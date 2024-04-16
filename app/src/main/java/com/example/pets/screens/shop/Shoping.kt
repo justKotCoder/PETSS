@@ -25,20 +25,16 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pets.R
 import com.example.pets.navigation.NavRoute
-
 import com.example.pets.screens.general._BottomBar
 import com.example.pets.ui.theme.PetsTheme
-import com.example.pets.viewModel.Shoping_ViewModel
 import kotlin.math.roundToInt
 
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun Shoping(navController: NavController,viewModel: Shoping_ViewModel){
+fun Shoping(navController: NavController){
     val count:Double = 20.3
-    var count1 by remember {
-        mutableStateOf(count/2)
-    }
+    var count1 = count
     Scaffold(
         Modifier.fillMaxSize(),
         bottomBar = {_BottomBar(navController)}
@@ -57,7 +53,7 @@ fun Shoping(navController: NavController,viewModel: Shoping_ViewModel){
                         .fillMaxSize()
                         .padding(bottom = 30.dp)){
                     items(count = count1.roundToInt()){
-                        RowTovar(i = it, viewModel = viewModel, count1.roundToInt(),navController)
+                        RowTovar(i = it, 1, )
                     }
                 }
             }
@@ -193,7 +189,7 @@ fun _Tovar(navController:NavController){
     }
 }
 @Composable
-fun RowTovar(i:Int,viewModel: Shoping_ViewModel, count:Int,navController: NavController){
+fun RowTovar(i:Int, count:Int){
     var c=count
     var co=c-1
     Row(Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.SpaceBetween){
@@ -208,7 +204,7 @@ fun RowTovar(i:Int,viewModel: Shoping_ViewModel, count:Int,navController: NavCon
 }
 
 @Composable
-fun ListTovar(viewModel: Shoping_ViewModel){
+fun ListTovar(){
     Column {
         for(i in 1..3){
             //RowTovar(i,viewModel)
@@ -220,6 +216,6 @@ fun ListTovar(viewModel: Shoping_ViewModel){
 @Composable
 fun viewShop(){
     PetsTheme {
-        Shoping(navController = rememberNavController(), Shoping_ViewModel())
+        Shoping(navController = rememberNavController())
     }
 }

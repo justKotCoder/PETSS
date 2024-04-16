@@ -20,15 +20,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pets.R
-import com.example.pets.navigation.NavRoute
 import com.example.pets.ui.theme.PetsTheme
-import com.example.pets.viewModel.Registration2_ViewModel
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @Composable
-fun Registration_2(navController: NavController,viewModel: Registration2_ViewModel){
-    val code by viewModel.Code.collectAsState()
-    val Error by viewModel.Error.collectAsState()
+fun Registration_2(navController: NavController){
+//    val code by viewModel.Code.collectAsState()
+//    val Error by viewModel.Error.collectAsState()
     var code_prov= remember{
         mutableStateOf("000000")
     }
@@ -56,11 +54,8 @@ fun Registration_2(navController: NavController,viewModel: Registration2_ViewMod
             }
             Box(){
                 TextField(
-                    value = code,
-                    onValueChange ={if (it.length<=6){
-                        viewModel.Code.value= it
-                        viewModel.Error.value=false
-                    }},
+                    value = "code",
+                    onValueChange ={ " " },
                     shape = RoundedCornerShape(20.dp),
                     maxLines = 1,
                     colors = TextFieldDefaults.textFieldColors(
@@ -84,9 +79,8 @@ fun Registration_2(navController: NavController,viewModel: Registration2_ViewMod
                         ) {
 
 
-                            Text(text =if(viewModel.Code.value.length > i){viewModel.Code.value[i].toString()}else{" "}
-                                , fontSize = 20.sp)
-                            Log.d("Egor1",viewModel.Code.value.length.toString())
+                            Text(text = " "
+                                ,fontSize = 20.sp)
                             Spacer(
                                 modifier = Modifier
                                     .width(30.dp)
@@ -100,12 +94,11 @@ fun Registration_2(navController: NavController,viewModel: Registration2_ViewMod
             }
             Text(text = "Неверный код, попробуйте еще раз",
                 fontSize = 12.sp,
-                color = if(Error==false){
+                color = if(false){
                     Color.Transparent}else{
                     Color.Red},
                 modifier = Modifier.padding(top=8.dp))
             Button(onClick = {
-                Log.d("Egor2",viewModel.Code.value.toString())
 //                Log.d("Egor2",Data.code.toString())
 
 
@@ -141,6 +134,6 @@ fun Registration_2(navController: NavController,viewModel: Registration2_ViewMod
 @Composable
 fun viewRegistration2(){
     PetsTheme {
-        Registration_2(navController = rememberNavController(), Registration2_ViewModel())
+        Registration_2(navController = rememberNavController())
     }
 }

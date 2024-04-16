@@ -19,12 +19,10 @@ import androidx.navigation.compose.rememberNavController
 import com.example.pets.R
 import com.example.pets.navigation.NavRoute
 import com.example.pets.ui.theme.PetsTheme
-import com.example.pets.viewModel.Registration_ViewModel
 
 
 @Composable
-fun Password_Recovery(navController: NavController,viewModel: Registration_ViewModel){
-    val email by viewModel.Email.collectAsState()
+fun Password_Recovery(navController: NavController){
 
 
     Box(
@@ -46,8 +44,8 @@ fun Password_Recovery(navController: NavController,viewModel: Registration_ViewM
                 )
             }
             TextField(
-                value = email,
-                onValueChange ={viewModel.Email.value=it},
+                value = "email",
+                onValueChange ={"viewModel.Email.value=it"},
                 leadingIcon = { Icon(Icons.Filled.Email, contentDescription = "Поиск") },
                 shape = RoundedCornerShape(20.dp),
                 maxLines = 1,
@@ -85,7 +83,7 @@ fun Password_Recovery(navController: NavController,viewModel: Registration_ViewM
 @Composable
 fun viewPassword(){
     PetsTheme {
-        Password_Recovery(navController = rememberNavController(), Registration_ViewModel())
+        Password_Recovery(navController = rememberNavController())
     }
 }
 

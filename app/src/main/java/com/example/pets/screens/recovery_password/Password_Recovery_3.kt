@@ -23,12 +23,10 @@ import androidx.navigation.compose.rememberNavController
 import com.example.pets.R
 import com.example.pets.navigation.NavRoute
 import com.example.pets.ui.theme.PetsTheme
-import com.example.pets.viewModel.Registration_ViewModel
 
 
 @Composable
-fun Password_Recovery_3(navController: NavController,viewModel: Registration_ViewModel){
-    val password by viewModel.Email.collectAsState()
+fun Password_Recovery_3(navController: NavController){
     var copy_password by remember {
         mutableStateOf("")
     }
@@ -61,8 +59,8 @@ fun Password_Recovery_3(navController: NavController,viewModel: Registration_Vie
                 )
             }
             TextField(
-                value = password,
-                onValueChange ={viewModel.Email.value=it},
+                value = "password",
+                onValueChange ={"viewModel.Email.value=it"},
                 leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Поиск") },
                 trailingIcon = { if(Visibility_password_1==false){
                     Icon(painterResource(id = R.drawable.visibility_off), contentDescription =null, modifier = Modifier.clickable { Visibility_password_1=true })
@@ -129,7 +127,7 @@ fun Password_Recovery_3(navController: NavController,viewModel: Registration_Vie
                 Color.Transparent}, modifier = Modifier.padding(top=8.dp))
             Button(onClick = {
 
-                if(password==copy_password &&password.length>8 &&copy_password.length>8){
+                if("password"==copy_password &&"password".length>8 &&copy_password.length>8){
                     navController.run { navigate(NavRoute.Authotization.route){popUpTo(0)} }
                     }
                 else{
@@ -155,6 +153,6 @@ fun Password_Recovery_3(navController: NavController,viewModel: Registration_Vie
 @Composable
 fun viewPassword3(){
     PetsTheme {
-        Password_Recovery_3(navController = rememberNavController(), Registration_ViewModel())
+        Password_Recovery_3(navController = rememberNavController())
     }
 }

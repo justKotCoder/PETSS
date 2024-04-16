@@ -9,9 +9,6 @@ import com.example.pets.screens.*
 import com.example.pets.screens.passport.StartScreen
 import com.example.pets.screens.registration.Registration
 import com.example.pets.screens.shop.Shoping_Tovar
-import com.example.pets.viewModel.Registration2_ViewModel
-import com.example.pets.viewModel.Registration_ViewModel
-import com.example.pets.viewModel.Shoping_ViewModel
 
 
 sealed class NavRoute(val route:String){
@@ -45,7 +42,7 @@ fun PetsNavHost() {
             Registration(navController = navController)
         }
         composable(NavRoute.Registration_2.route){
-            Registration_2(navController = navController, viewModel = Registration2_ViewModel())
+            Registration_2(navController = navController)
         }
         composable(NavRoute.Registration_3.route){
             Registration_3(navController = navController)
@@ -57,13 +54,13 @@ fun PetsNavHost() {
             Authotization(navController = navController)
         }
         composable(NavRoute.Password_Recovery.route){
-            Password_Recovery(navController = navController, viewModel = Registration_ViewModel())
+            Password_Recovery(navController = navController)
         }
         composable(NavRoute.Password_Recovery_2.route){
             Password_Recovery_2(navController = navController)
         }
         composable(NavRoute.Password_Recovery_3.route){
-            Password_Recovery_3(navController = navController, viewModel = Registration_ViewModel())
+            Password_Recovery_3(navController = navController)
         }
         composable(NavRoute.Passport.route){
             Passport(navController = navController)
@@ -78,7 +75,7 @@ fun PetsNavHost() {
             Passport_Notes(navController = navController)
         }
         composable(NavRoute.Shoping.route){
-            Shoping(navController = navController, viewModel = Shoping_ViewModel())
+            Shoping(navController = navController)
         }
         composable(NavRoute.Shoping_Tovar.route){
             Shoping_Tovar(navController = navController)
