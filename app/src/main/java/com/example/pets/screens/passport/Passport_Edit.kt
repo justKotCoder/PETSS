@@ -25,7 +25,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pets.R
 import com.example.pets.ui.theme.PetsTheme
-import androidx.lifecycle.viewmodel.compose.*
 import com.example.pets.navigation.NavRoute
 import com.example.pets.screens.general.PassportBar
 import com.example.pets.screens.general._BottomBar
@@ -34,17 +33,15 @@ import com.example.pets.screens.general._BottomBar
 @Composable
 fun pewStartScreen1(){
     PetsTheme {
-        Passport_Edit(navController = rememberNavController(), pets1 = Pets() )
+        Passport_Edit(navController = rememberNavController())
     }
 }
 
-class Pets() {
 
-}
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter", "StateFlowValueCalledInComposition")
 @Composable
-fun Passport_Edit(navController: NavController, pets1: Pets){
+fun Passport_Edit(navController: NavController){
 
 //    val Name_Petz: String by viewModel.Nickname.collectAsState()
 
