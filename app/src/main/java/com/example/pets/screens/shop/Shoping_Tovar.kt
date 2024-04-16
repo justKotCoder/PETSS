@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -25,15 +24,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.pets.R
-import com.example.pets._class.Tovar
-import com.example.pets.screens.RowTovar
 import com.example.pets.screens.general._BottomBar
-import kotlin.math.roundToInt
 
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun Shoping_Tovar(navController:NavController,tovar: Tovar){
+fun Shoping_Tovar(navController:NavController){
     var fill by remember {
         mutableStateOf(false)
     }
@@ -78,9 +74,9 @@ fun Shoping_Tovar(navController:NavController,tovar: Tovar){
                         shape = RoundedCornerShape(18.dp)
                     )
             )
-            Stroka2(tovar.GetOzenka())
-            Stroka3(tovar.GetPrice())
-            Stroka4(tovar.GetName(),tovar.GetOpicanie())
+            Stroka2(2.3)
+            Stroka3(20)
+            Stroka4("tovar.GetName()","tovar.GetOpicanie()")
             Stroka5()
             Column(modifier = if(fill==false){ modifier1}else{modifier2}
                     ){

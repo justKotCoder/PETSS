@@ -23,7 +23,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.pets._class.Pets
 import com.example.pets.R
 import com.example.pets.ui.theme.PetsTheme
 import com.example.pets.viewModel.Passport_Edit_ViewModel
@@ -38,6 +37,10 @@ fun pewStartScreen1(){
     PetsTheme {
         Passport_Edit(navController = rememberNavController(), pets1 = Pets() )
     }
+}
+
+class Pets() {
+
 }
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter", "StateFlowValueCalledInComposition")

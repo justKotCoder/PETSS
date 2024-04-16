@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.pets._class.tovar1
 //import com.example.pets.pets
 import com.example.pets.screens.*
 import com.example.pets.screens.passport.StartScreen
@@ -82,7 +81,7 @@ fun PetsNavHost() {
             Shoping(navController = navController, viewModel = Shoping_ViewModel())
         }
         composable(NavRoute.Shoping_Tovar.route){
-            Shoping_Tovar(navController = navController, tovar = tovar1!!)
+            Shoping_Tovar(navController = navController)
         }
         composable(NavRoute.Start_Passpoer.route){
             StartScreen(navController = navController)

@@ -1,9 +1,6 @@
 package com.example.pets.screens
 
 import android.annotation.SuppressLint
-import android.util.Log
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -18,7 +15,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextDecoration
@@ -27,9 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.pets.*
 import com.example.pets.R
-import com.example.pets._class.*
 import com.example.pets.navigation.NavRoute
 
 import com.example.pets.screens.general._BottomBar
@@ -41,7 +35,7 @@ import kotlin.math.roundToInt
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun Shoping(navController: NavController,viewModel: Shoping_ViewModel){
-    val count:Double by viewModel.count.collectAsState()
+    val count:Double = 20.3
     var count1 by remember {
         mutableStateOf(count/2)
     }
@@ -134,22 +128,22 @@ fun stroka_2(){
     }
 }
 @Composable
-fun _Tovar(navController:NavController,tovar: Tovar){
-    var price by remember {
-        mutableStateOf( tovar.GetPrice())
-    }
-    var star_price by remember {
-        mutableStateOf(tovar.GetOld_Price())
-    }
-    var Name by remember {
-        mutableStateOf(tovar.GetName())
-    }
-    var Opicanie by remember {
-        mutableStateOf(tovar.GetOpicanie())
-    }
-    var Ozenka by remember {
-        mutableStateOf(tovar.GetOzenka())
-    }
+fun _Tovar(navController:NavController){
+//    var price by remember {
+//        //mutableStateOf( tovar.GetPrice())
+//    }
+//    var star_price by remember {
+//        //mutableStateOf(tovar.GetOld_Price())
+//    }
+//    var Name by remember {
+//        //mutableStateOf(tovar.GetName())
+//    }
+//    var Opicanie by remember {
+//        //mutableStateOf(tovar.GetOpicanie())
+//    }
+//    var Ozenka by remember {
+//        //mutableStateOf(tovar.GetOzenka())
+//    }
     Column(
         Modifier
             .width(168.dp)
@@ -161,19 +155,19 @@ fun _Tovar(navController:NavController,tovar: Tovar){
             Modifier
                 .height(156.dp)
                 .clip(RoundedCornerShape(20.dp))) {
-            Image(painter = NotImage1!!,
-                contentDescription ="",
-                contentScale = ContentScale.Crop)
+//            Image(painter = NotImage1!!,
+//                contentDescription ="",
+//                contentScale = ContentScale.Crop)
         }
         Row(Modifier.padding(top=3.dp, start = 5.dp), verticalAlignment = Alignment.Bottom) {
-            Text(text = price.toString(), fontSize = 22.sp)
-            Text(text = star_price.toString(), fontSize = 14.sp,textDecoration = TextDecoration.LineThrough, modifier = Modifier.padding(start = 8.dp), color = Color.Gray)
+            Text(text = "price.toString()", fontSize = 22.sp)
+            Text(text = "star_price.toString()", fontSize = 14.sp,textDecoration = TextDecoration.LineThrough, modifier = Modifier.padding(start = 8.dp), color = Color.Gray)
         }
-        Text(text = Name,
+        Text(text = "Name",
             Modifier
                 .padding(start = 5.dp)
                 .height(16.dp), color = colorResource(id =R.color.Font),fontSize=12.sp)
-        Text(text = Opicanie,
+        Text(text = "Opicanie",
             Modifier
                 .padding(start = 5.dp, end = 6.dp)
                 .height(32.dp), fontSize =10.sp, lineHeight = 12.sp )
@@ -182,18 +176,17 @@ fun _Tovar(navController:NavController,tovar: Tovar){
                 .padding(start = 5.dp, top = 4.dp, end = 6.dp)
                 .height(15.dp)) {
             for(i in 1..5){
-                if(i<=Ozenka){
-                    Icon(painter = painterResource(id = R.drawable.ozenka), tint = Color.Yellow ,contentDescription = "content description")
-                }
-                else{
-                    Icon(painter = painterResource(id = R.drawable.ozenka),contentDescription = "content description" )
-                }
+//                if(i<=Ozenka){
+//                    Icon(painter = painterResource(id = R.drawable.ozenka), tint = Color.Yellow ,contentDescription = "content description")
+//                }
+//                else{
+//                    Icon(painter = painterResource(id = R.drawable.ozenka),contentDescription = "content description" )
+//                }
             }
             Icon(painter = painterResource(id = R.drawable.icon_cart) ,contentDescription = "content description",
                 modifier = Modifier
                     .padding(start=45.dp)
                     .clickable {
-                        tovar1=tovar
                         navController.navigate(NavRoute.Shoping_Tovar.route)
                     })
         }
@@ -204,13 +197,13 @@ fun RowTovar(i:Int,viewModel: Shoping_ViewModel, count:Int,navController: NavCon
     var c=count
     var co=c-1
     Row(Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.SpaceBetween){
-        if(i < co){
-            _Tovar(navController,viewModel.nomer())
-            _Tovar(navController,viewModel.nomer())
-        }
-        else{
-            _Tovar(navController,viewModel.nomer())
-        }
+//        if(i < co){
+//            _Tovar(navController,viewModel.nomer())
+//            _Tovar(navController,viewModel.nomer())
+//        }
+//        else{
+//            _Tovar(navController,viewModel.nomer())
+//        }
     }
 }
 
