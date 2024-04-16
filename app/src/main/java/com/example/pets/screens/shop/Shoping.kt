@@ -19,6 +19,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -123,23 +124,10 @@ fun stroka_2(){
         }
     }
 }
+
 @Composable
 fun _Tovar(navController:NavController){
-//    var price by remember {
-//        //mutableStateOf( tovar.GetPrice())
-//    }
-//    var star_price by remember {
-//        //mutableStateOf(tovar.GetOld_Price())
-//    }
-//    var Name by remember {
-//        //mutableStateOf(tovar.GetName())
-//    }
-//    var Opicanie by remember {
-//        //mutableStateOf(tovar.GetOpicanie())
-//    }
-//    var Ozenka by remember {
-//        //mutableStateOf(tovar.GetOzenka())
-//    }
+
     Column(
         Modifier
             .width(168.dp)

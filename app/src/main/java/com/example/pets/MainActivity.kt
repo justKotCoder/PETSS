@@ -26,39 +26,12 @@ class MainActivity : ComponentActivity() {
         }
         super.onCreate(savedInstanceState)
         setContent {
-            var a by remember {
-                mutableStateOf(true)
-            }
             PetsTheme {
                 Scaffold() {
-                    suspend fun doWork() {
-                            delay(3000L)
-
-                        a=true
-                    }
                         Surface(
                             modifier = Modifier.fillMaxSize()
                         ) {
-                            //if(a==true) {
-                            //    var pets1= Pets()
-                            //    pets=pets1
-                            //    загрузка()
-                            //    Log.d("kk", List_Tovar?.size.toString())
-                            //    Calendar()
-                            //    Passport_Notes()
-
                               PetsNavHost()
-
-                            //}
-                            //else{
-                            //    Main()
-                            //         GlobalScope.launch { doWork() }
-                            //}
-                            //загр()
-                            // Log.d("tt", Users?.size.toString())
-                            //Test()
-                            //NavHost()
-
                         }
                 }
             }

@@ -1,7 +1,6 @@
 package com.example.pets.screens
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -30,9 +29,6 @@ fun Registration_2(navController: NavController){
     var code_prov= remember{
         mutableStateOf("000000")
     }
-
-
-
     Box(
         Modifier
             .fillMaxSize()

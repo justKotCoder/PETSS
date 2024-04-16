@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-//import com.example.pets.pets
 import com.example.pets.screens.*
 import com.example.pets.screens.passport.StartScreen
 import com.example.pets.screens.registration.Registration
