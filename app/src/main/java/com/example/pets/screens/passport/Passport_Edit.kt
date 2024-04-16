@@ -15,27 +15,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pets._class.Pets
 import com.example.pets.R
-import com.example.pets.pets
 import com.example.pets.ui.theme.PetsTheme
 import com.example.pets.viewModel.Passport_Edit_ViewModel
 import androidx.lifecycle.viewmodel.compose.*
 import com.example.pets.navigation.NavRoute
 import com.example.pets.screens.general.PassportBar
 import com.example.pets.screens.general._BottomBar
-import kotlinx.coroutines.launch
 
 @Preview(showBackground = true)
 @Composable
@@ -49,9 +44,9 @@ fun pewStartScreen1(){
 @Composable
 fun Passport_Edit(navController: NavController, pets1: Pets, viewModel: Passport_Edit_ViewModel= viewModel()){
 
-    val Name_Petz: String by viewModel.Nickname.collectAsState()
+//    val Name_Petz: String by viewModel.Nickname.collectAsState()
 
-    val  Race: String by viewModel.Race.collectAsState()
+    //val  Race: String by viewModel.Race.collectAsState()
 
     var visible by remember {
         mutableStateOf(false)
@@ -95,8 +90,8 @@ fun Passport_Edit(navController: NavController, pets1: Pets, viewModel: Passport
                         Text(text = "Имя", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=24.dp))
                         Box() {
                             TextField(
-                                value =Name_Petz,
-                                onValueChange ={viewModel.Nickname.value=it},
+                                value = "Name_Petz",
+                                onValueChange ={"viewModel.Nickname.value=it"},
                                 shape = RoundedCornerShape(20.dp),
                                 maxLines = 1,
                                 colors = TextFieldDefaults.textFieldColors(
@@ -109,7 +104,7 @@ fun Passport_Edit(navController: NavController, pets1: Pets, viewModel: Passport
                                 modifier = Modifier.height(42.dp)
                             )
                             Text(
-                                text =Name_Petz,
+                                text = "Name_Petz",
                                 fontSize = 16.sp,
                                 color = colorResource(id = R.color.color_text),
                                 modifier = Modifier
@@ -121,8 +116,8 @@ fun Passport_Edit(navController: NavController, pets1: Pets, viewModel: Passport
                         Text(text = "Порода", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=10.dp))
                         Box() {
                         TextField(
-                            value =Race,
-                            onValueChange ={viewModel.Race.value=it},
+                            value = "Race",
+                            onValueChange = { " " },
                             shape = RoundedCornerShape(20.dp),
                             maxLines = 1,
                             colors = TextFieldDefaults.textFieldColors(
@@ -135,7 +130,7 @@ fun Passport_Edit(navController: NavController, pets1: Pets, viewModel: Passport
                             modifier = Modifier.height(42.dp)
                             )
                             Text(
-                                text =Race,
+                                text = "Race",
                                 fontSize = 16.sp,
                                 color = colorResource(id = R.color.color_text),
                                 modifier = Modifier
@@ -194,8 +189,8 @@ fun Passport_Edit(navController: NavController, pets1: Pets, viewModel: Passport
                         .padding(start = 24.dp))
                 }
                 Button(onClick = {
-                    if(pets?.GetNick()!="Дима"){
-                    viewModel.name()}
+//                    if(true){
+//                    viewModel.name()}
                     navController.navigate(NavRoute.Authotization.route)},
                     Modifier
                         .fillMaxWidth()
@@ -229,9 +224,9 @@ fun Passport_Edit(navController: NavController, pets1: Pets, viewModel: Passport
                             Scroll = true
                             visible = false
                             if (text != "" && text1 != "") {
-                                viewModel.Harackter.value.add(text)
-                                viewModel.OpicHaracket.value.add(text1)
-                                viewModel.count.value++
+//                                viewModel.Harackter.value.add(text)
+//                                viewModel.OpicHaracket.value.add(text1)
+//                                viewModel.count.value++
                             }
                         }) {
                     Box(
@@ -297,12 +292,12 @@ fun Ctroka_3 (viewModel:Passport_Edit_ViewModel){
     var visibility by remember {
         mutableStateOf(false)
     }
-    val Age : String by viewModel.Age.collectAsState()
-    val Pol : String by viewModel.Pol.collectAsState()
+//    val Age : String by viewModel.Age.collectAsState()
+//    val Pol : String by viewModel.Pol.collectAsState()
 
 
     var button1 by remember {
-        mutableStateOf(if(Pol=="Женский"){0}else{1})
+        mutableStateOf(if("Pol"=="Женский"){0}else{1})
     }
     Row(
         Modifier
@@ -336,7 +331,7 @@ fun Ctroka_3 (viewModel:Passport_Edit_ViewModel){
                                                 .align(Alignment.Center)
                                                 .padding(top = 6.dp)
                                                 .clickable {
-                                                    viewModel.Age.value = it.toString()
+//                                                    viewModel.Age.value = it.toString()
                                                     visibility = false
 
                                                 })
@@ -353,7 +348,7 @@ fun Ctroka_3 (viewModel:Passport_Edit_ViewModel){
                         .background(Color.White)
                 )
                 {
-                    Text(text = Age, modifier=Modifier.padding(start = 24.dp,top=9.dp))
+//                    Text(text = Age, modifier=Modifier.padding(start = 24.dp,top=9.dp))
                     Icon(painter = painterResource(id = R.drawable.icon_v), contentDescription ="",
                         Modifier
                             .align(
@@ -376,19 +371,18 @@ fun Ctroka_3 (viewModel:Passport_Edit_ViewModel){
                     .background(Color.White))
             {
                 Row(Modifier.padding(2.dp),horizontalArrangement = Arrangement.SpaceAround){
-                    Button(onClick = { viewModel.Pol.value="Женский"
-                        button1=0},
-                        Modifier
-                            .width(104.dp)
-                            .fillMaxHeight(),
-
-                        colors = ButtonDefaults.buttonColors(if(button1==0){Color.Blue}else{Color.White}),
-                        shape = CircleShape,
-                        contentPadding = PaddingValues(0.dp),) {
-                        Text("Женский", fontSize = 16.sp, color = if(button1==0){Color.White}else{Color.Blue})
+//                    Button(onClick = { viewModel.Pol.value="Женский"
+//                        button1=0},
+//                        Modifier
+//                            .width(104.dp)
+//                            .fillMaxHeight(),
+//
+//                        colors = ButtonDefaults.buttonColors(if(button1==0){Color.Blue}else{Color.White}),
+//                        shape = CircleShape,
+//                        contentPadding = PaddingValues(0.dp),) {
+//                        Text("Женский", fontSize = 16.sp, color = if(button1==0){Color.White}else{Color.Blue})
                     }
-                    Button(onClick = { viewModel.Pol.value="Мужской"
-                        button1=1},
+                    Button(onClick = { },
                         Modifier
                             .width(104.dp)
                             .fillMaxHeight(),
@@ -402,31 +396,31 @@ fun Ctroka_3 (viewModel:Passport_Edit_ViewModel){
         }
 
     }
-}
+
 
 @Composable
 fun Ctroka_4(viewModel: Passport_Edit_ViewModel){
-    val Harackter by viewModel.Harackter.collectAsState()
-    val OpicHaracket by viewModel.OpicHaracket.collectAsState()
+//    val Harackter by viewModel.Harackter.collectAsState()
+//    val OpicHaracket by viewModel.OpicHaracket.collectAsState()
     val openDialog = remember { mutableStateOf(false) }
-    val h by viewModel.count.collectAsState()
+//    val h by viewModel.count.collectAsState()
     var deleit by remember {
         mutableStateOf(0)
     }
-    for(i in 0..h){
-        var text1 by remember {
-            mutableStateOf(Harackter.get(i).toString())
-        }
-        var text2 by remember {
-            mutableStateOf(OpicHaracket.get(i))
-        }
+//    for(i in 0..h){
+//        var text1 by remember {
+//            mutableStateOf(Harackter.get(i).toString())
+//        }
+//        var text2 by remember {
+//            mutableStateOf(OpicHaracket.get(i))
+//        }
 
-    Text(text = Harackter!!.get(i), fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=16.dp))
+    Text(text = "Harackter!!.get(i)", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=16.dp))
     TextField(
-        value =text2,
+        value = "text2",
         onValueChange ={
-                    text2 =it
-                    OpicHaracket!!.add(i,text2)
+//                    text2 =it
+//                    OpicHaracket!!.add(i,text2)
                        },
         shape = RoundedCornerShape(20.dp),
         maxLines = 1,
@@ -438,7 +432,7 @@ fun Ctroka_4(viewModel: Passport_Edit_ViewModel){
             backgroundColor = Color.White
         ),trailingIcon = {
             Icon(painterResource(id = R.drawable.icon_delelit), contentDescription =null, modifier = Modifier.clickable {
-                deleit=i
+                deleit=0
                 openDialog.value = true
 
 
@@ -452,31 +446,31 @@ fun Ctroka_4(viewModel: Passport_Edit_ViewModel){
     )
 
     }
-    if (openDialog.value) {
-        AlertDialog(
-            onDismissRequest = {
+//    if (openDialog.value) {
+//        AlertDialog(
+//            onDismissRequest = {
+//
+//                openDialog.value = false
+//            },
+//            title = { Text(text = "Подтверждение действия") },
+//            text = { Text("Вы действительно хотите удалить выбранный элемент?") },
+//            buttons = {
+//                Button(
+//
+//                    onClick = {
+////                        Harackter.removeAt(deleit)
+////                        OpicHaracket.removeAt(deleit)
+////                        viewModel.count.value--
+////                        openDialog.value = false
+//                    }
+//                ) {
+//                    Text("OK", fontSize = 22.sp)
+//                }
+//            }
+//        )
+//    }
 
-                openDialog.value = false
-            },
-            title = { Text(text = "Подтверждение действия") },
-            text = { Text("Вы действительно хотите удалить выбранный элемент?") },
-            buttons = {
-                Button(
 
-                    onClick = {
-                        Harackter.removeAt(deleit)
-                        OpicHaracket.removeAt(deleit)
-                        viewModel.count.value--
-                        openDialog.value = false
-                    }
-                ) {
-                    Text("OK", fontSize = 22.sp)
-                }
-            }
-        )
-    }
-
-}
 
 
 

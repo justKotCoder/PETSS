@@ -27,7 +27,7 @@ import com.example.pets.R
 
 
 import com.example.pets.navigation.NavRoute
-import com.example.pets.pets
+//import com.example.pets.pets
 
 import com.example.pets.ui.theme.PetsTheme
 

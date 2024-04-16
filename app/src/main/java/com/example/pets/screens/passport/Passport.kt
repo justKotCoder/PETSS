@@ -31,7 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.rememberNavController
 import com.example.pets.R
-import com.example.pets.modifier1
+//import com.example.pets.modifier1
 import com.example.pets.navigation.NavRoute
 import com.example.pets.screens.general._BottomBar
 
@@ -256,12 +256,12 @@ fun Haracterictika(){
                 ,verticalArrangement = Arrangement.SpaceBetween) {
             Row(Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.SpaceAround, verticalAlignment = Alignment.Bottom){
                 Text(text="Вид шерсти", fontSize = 14.sp,color = colorResource(id = R.color.color_text))
-                Spacer(modifier = modifier1.fillMaxWidth(0.2f))
+//                Spacer(modifier = modifier1.fillMaxWidth(0.2f))
                 Text(text = Bec, fontSize = 14.sp,color = colorResource(id = R.color.color_text))
             }
             Row(Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.SpaceAround,verticalAlignment = Alignment.Bottom){
                 Text(text="Окрас", fontSize = 14.sp, color = colorResource(id = R.color.color_text))
-                Spacer(modifier = modifier1.fillMaxWidth(0.65f))
+//                Spacer(modifier = modifier1.fillMaxWidth(0.65f))
                 Text(text = "Черный", fontSize = 14.sp,color = colorResource(id = R.color.color_text))
             }
 

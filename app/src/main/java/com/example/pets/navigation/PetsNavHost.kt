@@ -5,7 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.pets._class.tovar1
-import com.example.pets.pets
+//import com.example.pets.pets
 import com.example.pets.screens.*
 import com.example.pets.screens.passport.StartScreen
 import com.example.pets.screens.registration.Registration
@@ -69,9 +69,9 @@ fun PetsNavHost() {
         composable(NavRoute.Passport.route){
             Passport(navController = navController)
         }
-        composable(NavRoute.Passport_Edit.route){
-            Passport_Edit(navController = navController, pets!!)
-        }
+//        composable(NavRoute.Passport_Edit.route){
+//            Passport_Edit(navController = navController, pets!!)
+//        }
         composable(NavRoute.Passport_Clendar.route){
             Calendar(navController = navController)
         }
