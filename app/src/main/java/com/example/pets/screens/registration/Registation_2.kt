@@ -24,11 +24,7 @@ import com.example.pets.ui.theme.PetsTheme
 @SuppressLint("StateFlowValueCalledInComposition")
 @Composable
 fun Registration_2(navController: NavController){
-//    val code by viewModel.Code.collectAsState()
-//    val Error by viewModel.Error.collectAsState()
-    var code_prov= remember{
-        mutableStateOf("000000")
-    }
+
     Box(
         Modifier
             .fillMaxSize()
@@ -51,7 +47,7 @@ fun Registration_2(navController: NavController){
             Box(){
                 TextField(
                     value = "code",
-                    onValueChange ={ " " },
+                    onValueChange ={ " /*TODO*/ " },
                     shape = RoundedCornerShape(20.dp),
                     maxLines = 1,
                     colors = TextFieldDefaults.textFieldColors(
@@ -95,15 +91,7 @@ fun Registration_2(navController: NavController){
                     Color.Red},
                 modifier = Modifier.padding(top=8.dp))
             Button(onClick = {
-//                Log.d("Egor2",Data.code.toString())
 
-
-//                if(Data.code==viewModel.Code.value) {
-//                    navController.navigate(NavRoute.Registration_3.route)
-//                }
-//                else{
-//                    viewModel.Error.value=true
-//                }
             },
                 shape = RoundedCornerShape(20.dp),
                 colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.icon), contentColor = Color.Black),
@@ -112,7 +100,7 @@ fun Registration_2(navController: NavController){
                     .padding(top = 24.dp)) {
                 Text(text = "Дальше", fontSize = 22.sp,color= Color.White)
             }
-            Text(text = stringResource(id = R.string.xyz),lineHeight = 16.sp, letterSpacing = 0.4.sp , fontSize = 12.sp, textAlign = TextAlign.Center ,modifier = Modifier.padding(top=8.dp,start=18.5.dp,end=18.5.dp),color= colorResource(
+            Text(text = stringResource(id = R.string.code_delivered),lineHeight = 16.sp, letterSpacing = 0.4.sp , fontSize = 12.sp, textAlign = TextAlign.Center ,modifier = Modifier.padding(top=8.dp,start=18.5.dp,end=18.5.dp),color= colorResource(
                 id = R.color.color_text
             )
             )

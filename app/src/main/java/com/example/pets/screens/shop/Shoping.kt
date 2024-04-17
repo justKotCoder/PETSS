@@ -54,7 +54,7 @@ fun Shoping(navController: NavController){
                         .fillMaxSize()
                         .padding(bottom = 30.dp)){
                     items(count = count1.roundToInt()){
-                        RowTovar(i = it, 1, )
+
                     }
                 }
             }
@@ -133,7 +133,6 @@ fun _Tovar(navController:NavController){
             .width(168.dp)
             .height(276.dp)
             .clip(RoundedCornerShape(20.dp))
-        //.background(color = Color.Gray),
     ) {
         Box(
             Modifier
@@ -159,43 +158,13 @@ fun _Tovar(navController:NavController){
             Modifier
                 .padding(start = 5.dp, top = 4.dp, end = 6.dp)
                 .height(15.dp)) {
-            for(i in 1..5){
-//                if(i<=Ozenka){
-//                    Icon(painter = painterResource(id = R.drawable.ozenka), tint = Color.Yellow ,contentDescription = "content description")
-//                }
-//                else{
-//                    Icon(painter = painterResource(id = R.drawable.ozenka),contentDescription = "content description" )
-//                }
-            }
+
             Icon(painter = painterResource(id = R.drawable.icon_cart) ,contentDescription = "content description",
                 modifier = Modifier
                     .padding(start=45.dp)
                     .clickable {
                         navController.navigate(NavRoute.Shoping_Tovar.route)
                     })
-        }
-    }
-}
-@Composable
-fun RowTovar(i:Int, count:Int){
-    var c=count
-    var co=c-1
-    Row(Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.SpaceBetween){
-//        if(i < co){
-//            _Tovar(navController,viewModel.nomer())
-//            _Tovar(navController,viewModel.nomer())
-//        }
-//        else{
-//            _Tovar(navController,viewModel.nomer())
-//        }
-    }
-}
-
-@Composable
-fun ListTovar(){
-    Column {
-        for(i in 1..3){
-            //RowTovar(i,viewModel)
         }
     }
 }

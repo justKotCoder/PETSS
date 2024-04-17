@@ -136,9 +136,7 @@ fun Authotization(navController: NavController) {
 
                 Button(
                     onClick = {
-//                        SignIn(email = email, password = password, navController, context)
-//                        //navController.navigate(NavRoute.Shoping.route)
-//                        //visibility = true
+
 
                     },
 
@@ -158,7 +156,6 @@ fun Authotization(navController: NavController) {
                     fontSize = 14.sp,
                     modifier = Modifier
                         .padding(top = 8.dp)
-
                         .clickable { navController.navigate(NavRoute.Registration.route) },
                     color = colorResource(id = R.color.color_1)
 

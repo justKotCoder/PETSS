@@ -88,23 +88,15 @@ fun notes(){
 }
 
 @Composable
-fun RowNotes(i:Int){
+fun RowNotes(){
     Row(Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.SpaceBetween){
-        if(i<=5){
         notes()
-        notes()
-        }
-        else{
-            notes()
-    }
     }
 }
 
 @Composable
 fun ListNotes(){
     Column {
-        for(i in 1..6){
-        RowNotes(i)
-        }
+        RowNotes()
     }
 }

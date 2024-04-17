@@ -1,9 +1,7 @@
 package com.example.pets.screens
 
 import android.annotation.SuppressLint
-import android.graphics.Paint.Align
 import androidx.compose.animation.*
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -11,8 +9,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
@@ -23,13 +19,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TransformOrigin
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import androidx.navigation.compose.rememberNavController
 import com.example.pets.R
 //import com.example.pets.modifier1
 import com.example.pets.navigation.NavRoute
@@ -128,7 +122,7 @@ fun Foto_Pets(navController: NavController){
     }
 }
 
-@OptIn(ExperimentalAnimationApi::class)
+
 @Composable
 fun Setting_(visibility:Boolean,navController: NavController){
     Box(
@@ -201,10 +195,10 @@ fun Setting_(visibility:Boolean,navController: NavController){
 
 @Composable
 fun Card_Pets(){
-    var Name by remember {
+    var name by remember {
         mutableStateOf("София")
     }
-    var Age by remember {
+    var age by remember {
         mutableStateOf("3 года")
     }
 
@@ -225,7 +219,7 @@ fun Card_Pets(){
                 .fillMaxWidth()
                 .padding(top = 15.dp, start = 0.dp),horizontalArrangement = Arrangement.SpaceAround) {
             Column {
-                Text(text = Name, fontSize = 22.sp,color = colorResource(id = R.color.color_text),)
+                Text(text = name, fontSize = 22.sp,color = colorResource(id = R.color.color_text),)
                 Text(text="Не уствновлено", fontSize = 14.sp,color = colorResource(id = R.color.color_text),)
             }
             Column(horizontalAlignment = Alignment.CenterHorizontally,) {
@@ -234,7 +228,7 @@ fun Card_Pets(){
                         .rotate(18f)
                         .padding(top = 3.dp),
                     tint = colorResource(id = R.color.color_text))
-                Text(text =Age, fontSize = 14.sp, modifier = Modifier.padding(top=3.dp),color = colorResource(id = R.color.color_text) )
+                Text(text =age, fontSize = 14.sp, modifier = Modifier.padding(top=3.dp),color = colorResource(id = R.color.color_text) )
             }
         }
     }
@@ -243,7 +237,7 @@ fun Card_Pets(){
 @Preview()
 @Composable
 fun Haracterictika(){
-    var Bec by remember(){
+    var weight by remember(){
         mutableStateOf("Короткошерстный")
     }
         Column(
@@ -256,12 +250,10 @@ fun Haracterictika(){
                 ,verticalArrangement = Arrangement.SpaceBetween) {
             Row(Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.SpaceAround, verticalAlignment = Alignment.Bottom){
                 Text(text="Вид шерсти", fontSize = 14.sp,color = colorResource(id = R.color.color_text))
-//                Spacer(modifier = modifier1.fillMaxWidth(0.2f))
-                Text(text = Bec, fontSize = 14.sp,color = colorResource(id = R.color.color_text))
+                Text(text = weight, fontSize = 14.sp,color = colorResource(id = R.color.color_text))
             }
             Row(Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.SpaceAround,verticalAlignment = Alignment.Bottom){
                 Text(text="Окрас", fontSize = 14.sp, color = colorResource(id = R.color.color_text))
-//                Spacer(modifier = modifier1.fillMaxWidth(0.65f))
                 Text(text = "Черный", fontSize = 14.sp,color = colorResource(id = R.color.color_text))
             }
 

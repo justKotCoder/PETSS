@@ -8,18 +8,12 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.*
-import androidx.compose.material.MaterialTheme.colors
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Lock
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -45,7 +39,7 @@ fun AddPets() {
     var age by remember {
         mutableStateOf("")
     }
-    var listage by remember {
+    var ageList by remember {
         mutableStateOf(false)
     }
     var typeOfWool by remember {
@@ -65,8 +59,7 @@ fun AddPets() {
 
                 ) {
                 Box(
-                    Modifier
-
+                    
                 ) {
                     Text(
                         text = "Профиль Питомца", fontSize = 22.sp
@@ -111,7 +104,6 @@ fun AddPets() {
                     Box(
                         Modifier.width(96.dp).height(42.dp)
                     ) {
-                        //123
                         val interactionSource = remember { MutableInteractionSource() }
                         var colors: TextFieldColors = GetColors()
                         BasicTextField(
@@ -136,17 +128,16 @@ fun AddPets() {
                                     Icon(painterResource(id = R.drawable.dropdown),
                                         contentDescription = null,
                                         modifier = Modifier.clickable {
-                                            listage = true
+                                            ageList = true
                                         })
 
                                 }
 
-                                // this is how you can remove the padding
                             )
-                            if (listage) {
+                            if (ageList) {
                                 DropdownMenu(
-                                    expanded = listage,
-                                    onDismissRequest = { listage = false },
+                                    expanded = ageList,
+                                    onDismissRequest = { ageList = false },
                                     modifier = Modifier.fillMaxHeight()
 
                                 ) {
@@ -156,7 +147,6 @@ fun AddPets() {
                                 }
                             }
                         }
-                        //123
                     }
 
                 }
@@ -176,21 +166,6 @@ fun AddPets() {
             }
         }
     }
-
-}
-
-@OptIn(ExperimentalMaterialApi::class)
-@Composable
-fun AgeTextField(
-    value: String,
-    onValueChange: (String) -> Unit,
-    modifier: Modifier = Modifier,
-    colors: TextFieldColors = GetColors(),
-    shape: Shape = RoundedCornerShape(16.dp),
-    listage: (Boolean)->Unit
-
-) {
-    val interactionSource = remember { MutableInteractionSource() }
 
 }
 
@@ -221,7 +196,6 @@ fun DefaultTextField(
             singleLine = true,
             visualTransformation = VisualTransformation.None,
             colors = colors
-            // this is how you can remove the padding
         )
     }
 }

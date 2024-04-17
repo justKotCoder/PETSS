@@ -43,10 +43,6 @@ fun pewStartScreen1(){
 @Composable
 fun Passport_Edit(navController: NavController){
 
-//    val Name_Petz: String by viewModel.Nickname.collectAsState()
-
-    //val  Race: String by viewModel.Race.collectAsState()
-
     var visible by remember {
         mutableStateOf(false)
     }
@@ -90,7 +86,7 @@ fun Passport_Edit(navController: NavController){
                         Box() {
                             TextField(
                                 value = "Name_Petz",
-                                onValueChange ={"viewModel.Nickname.value=it"},
+                                onValueChange ={"/*TODO*/ "},
                                 shape = RoundedCornerShape(20.dp),
                                 maxLines = 1,
                                 colors = TextFieldDefaults.textFieldColors(
@@ -116,7 +112,7 @@ fun Passport_Edit(navController: NavController){
                         Box() {
                         TextField(
                             value = "Race",
-                            onValueChange = { " " },
+                            onValueChange = { "/*TODO*/ " },
                             shape = RoundedCornerShape(20.dp),
                             maxLines = 1,
                             colors = TextFieldDefaults.textFieldColors(
@@ -141,7 +137,6 @@ fun Passport_Edit(navController: NavController){
                     PassportBar(navController)
                 }
                 Ctroka_3()
-                Ctroka_4()
                 Column(
                     Modifier
                         .padding(top = 24.dp)
@@ -188,8 +183,7 @@ fun Passport_Edit(navController: NavController){
                         .padding(start = 24.dp))
                 }
                 Button(onClick = {
-//                    if(true){
-//                    viewModel.name()}
+
                     navController.navigate(NavRoute.Authotization.route)},
                     Modifier
                         .fillMaxWidth()
@@ -205,11 +199,9 @@ fun Passport_Edit(navController: NavController){
             AnimatedVisibility(
                 visible = visible,
                 enter = fadeIn(
-                    // Overwrites the initial value of alpha to 0.4f for fade in, 0 by default
                     initialAlpha = 0.4f
                 ),
                 exit = fadeOut(
-                    // Overwrites the default animation with tween
                     animationSpec = tween(durationMillis = 250)
                 )
             ) {
@@ -222,11 +214,7 @@ fun Passport_Edit(navController: NavController){
                         .clickable {
                             Scroll = true
                             visible = false
-                            if (text != "" && text1 != "") {
-//                                viewModel.Harackter.value.add(text)
-//                                viewModel.OpicHaracket.value.add(text1)
-//                                viewModel.count.value++
-                            }
+
                         }) {
                     Box(
                         Modifier
@@ -291,12 +279,9 @@ fun Ctroka_3 (){
     var visibility by remember {
         mutableStateOf(false)
     }
-//    val Age : String by viewModel.Age.collectAsState()
-//    val Pol : String by viewModel.Pol.collectAsState()
-
 
     var button1 by remember {
-        mutableStateOf(if("Pol"=="Женский"){0}else{1})
+        mutableStateOf(0)
     }
     Row(
         Modifier
@@ -330,9 +315,7 @@ fun Ctroka_3 (){
                                                 .align(Alignment.Center)
                                                 .padding(top = 6.dp)
                                                 .clickable {
-//                                                    viewModel.Age.value = it.toString()
-                                                    visibility = false
-
+                                                    /*TODO*/
                                                 })
                                     }
                                 }}
@@ -347,7 +330,6 @@ fun Ctroka_3 (){
                         .background(Color.White)
                 )
                 {
-//                    Text(text = Age, modifier=Modifier.padding(start = 24.dp,top=9.dp))
                     Icon(painter = painterResource(id = R.drawable.icon_v), contentDescription ="",
                         Modifier
                             .align(
@@ -356,6 +338,7 @@ fun Ctroka_3 (){
                             .padding(top = 18.dp, end = 24.dp)
                             .clickable {
                                 visibility = !visibility
+                                /*TODO*/
                             } )
                 }
             }
@@ -370,16 +353,16 @@ fun Ctroka_3 (){
                     .background(Color.White))
             {
                 Row(Modifier.padding(2.dp),horizontalArrangement = Arrangement.SpaceAround){
-//                    Button(onClick = { viewModel.Pol.value="Женский"
-//                        button1=0},
-//                        Modifier
-//                            .width(104.dp)
-//                            .fillMaxHeight(),
-//
-//                        colors = ButtonDefaults.buttonColors(if(button1==0){Color.Blue}else{Color.White}),
-//                        shape = CircleShape,
-//                        contentPadding = PaddingValues(0.dp),) {
-//                        Text("Женский", fontSize = 16.sp, color = if(button1==0){Color.White}else{Color.Blue})
+                    Button(onClick = { "Женский"
+                        button1=0},
+                        Modifier
+                            .width(104.dp)
+                            .fillMaxHeight(),
+
+                        colors = ButtonDefaults.buttonColors(if(button1==0){Color.Blue}else{Color.White}),
+                        shape = CircleShape,
+                        contentPadding = PaddingValues(0.dp),) {
+                        Text("Женский", fontSize = 16.sp, color = if(button1==0){Color.White}else{Color.Blue})
                     }
                     Button(onClick = { },
                         Modifier
@@ -399,27 +382,18 @@ fun Ctroka_3 (){
 
 @Composable
 fun Ctroka_4(){
-//    val Harackter by viewModel.Harackter.collectAsState()
-//    val OpicHaracket by viewModel.OpicHaracket.collectAsState()
+
     val openDialog = remember { mutableStateOf(false) }
-//    val h by viewModel.count.collectAsState()
     var deleit by remember {
         mutableStateOf(0)
     }
-//    for(i in 0..h){
-//        var text1 by remember {
-//            mutableStateOf(Harackter.get(i).toString())
-//        }
-//        var text2 by remember {
-//            mutableStateOf(OpicHaracket.get(i))
-//        }
+
 
     Text(text = "Harackter!!.get(i)", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=16.dp))
     TextField(
         value = "text2",
         onValueChange ={
-//                    text2 =it
-//                    OpicHaracket!!.add(i,text2)
+                       " "
                        },
         shape = RoundedCornerShape(20.dp),
         maxLines = 1,
@@ -445,29 +419,8 @@ fun Ctroka_4(){
     )
 
     }
-//    if (openDialog.value) {
-//        AlertDialog(
-//            onDismissRequest = {
-//
-//                openDialog.value = false
-//            },
-//            title = { Text(text = "Подтверждение действия") },
-//            text = { Text("Вы действительно хотите удалить выбранный элемент?") },
-//            buttons = {
-//                Button(
-//
-//                    onClick = {
-////                        Harackter.removeAt(deleit)
-////                        OpicHaracket.removeAt(deleit)
-////                        viewModel.count.value--
-////                        openDialog.value = false
-//                    }
-//                ) {
-//                    Text("OK", fontSize = 22.sp)
-//                }
-//            }
-//        )
-//    }
+}
+
 
 
 

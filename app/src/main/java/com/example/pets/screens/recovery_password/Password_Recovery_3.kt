@@ -60,7 +60,7 @@ fun Password_Recovery_3(navController: NavController){
             }
             TextField(
                 value = "password",
-                onValueChange ={"viewModel.Email.value=it"},
+                onValueChange ={" /*TODO*/ "},
                 leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Поиск") },
                 trailingIcon = { if(Visibility_password_1==false){
                     Icon(painterResource(id = R.drawable.visibility_off), contentDescription =null, modifier = Modifier.clickable { Visibility_password_1=true })
@@ -127,7 +127,7 @@ fun Password_Recovery_3(navController: NavController){
                 Color.Transparent}, modifier = Modifier.padding(top=8.dp))
             Button(onClick = {
 
-                if("password"==copy_password &&"password".length>8 &&copy_password.length>8){
+                if("password" == copy_password && "password".length > 8){
                     navController.run { navigate(NavRoute.Authotization.route){popUpTo(0)} }
                     }
                 else{

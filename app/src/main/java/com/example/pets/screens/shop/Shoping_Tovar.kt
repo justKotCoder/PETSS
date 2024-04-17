@@ -3,7 +3,6 @@ package com.example.pets.screens.shop
 import android.annotation.SuppressLint
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -190,7 +189,7 @@ fun Stroka2(Ozenka:Double){
     }
 }
 @Composable
-fun Stroka3(Price:Int,star_price:Int=800){
+fun Stroka3(Price:Int){
     var price= Price
     var star_price=800
     Row(

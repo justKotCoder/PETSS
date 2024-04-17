@@ -63,8 +63,6 @@ fun Registration(@PreviewParameter(PreviewParameterProvider::class)navController
                 modifier = Modifier.fillMaxWidth()
             )
             Button(onClick = {
-//                Data.email=email
-//                Data.code=sendNessage(email)
                 navController.navigate(NavRoute.Registration_2.route)
             },
                 shape = RoundedCornerShape(20.dp),
