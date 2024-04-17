@@ -48,21 +48,21 @@ android {
 }
 
 dependencies {
-    def nav_version = "2.7.7"
 
-    implementation "androidx.navigation:navigation-compose:$nav_version"
+    //Jetpack Compose
     implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
     implementation 'androidx.activity:activity-compose:1.7.0'
     implementation "androidx.compose.ui:ui:1.4.0"
     implementation "androidx.compose.ui:ui-tooling-preview:1.4.0"
     implementation 'androidx.compose.material:material:1.4.0'
+
+    //Room
     implementation 'androidx.room:room-common:2.5.1'
 
-//    implementation files('D:\\Pets_new\\library\\activation.jar')
-//    implementation files('D:\\Pets_new\\library\\additionnal.jar')
-//    implementation files('D:\\Pets_new\\library\\mail.jar')
+    //Corutines
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
 
+    //Tests
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -70,45 +70,18 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:1.4.0"
     debugImplementation "androidx.compose.ui:ui-test-manifest:1.4.0"
 
-
+    //Supabase
     def ktor_version = "2.2.3"
-
     implementation("io.ktor:ktor-client-core:$ktor_version")
     implementation("io.ktor:ktor-client-cio:$ktor_version")
     implementation("io.ktor:ktor-client-android:$ktor_version")
     implementation("io.ktor:ktor-client-android:$ktor_version")
     implementation("io.ktor:ktor-serialization-gson:$ktor_version")
 
-
-    //implementation("com.google.devtools.ksp:symbol-processing-api:1.8.10-1.0.9")
-
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
-
+    //navigation
+    def nav_version = "2.7.7"
+    implementation "androidx.navigation:navigation-compose:$nav_version"
     implementation 'androidx.navigation:navigation-runtime-ktx:2.5.3'
     implementation "androidx.navigation:navigation-compose:2.5.3"
-
-    //def koin_version = "3.3.3"
-
-//    ksp "io.insert-koin:koin-core:$koin_version"
-//    implementation "io.insert-koin:koin-android:$koin_version"
-//    def koin_ksp_version = "1.1.0"
-//    implementation "io.insert-koin:koin-annotations:$koin_ksp_version"
-//    ksp "io.insert-koin:koin-ksp-compiler:$koin_ksp_version"
-
-    def koin_android_compose_version = "3.4.2"
-    implementation "io.insert-koin:koin-androidx-compose:$koin_android_compose_version"
-    implementation 'com.google.firebase:firebase-auth-ktx:21.2.0'
-    implementation 'com.google.firebase:firebase-analytics-ktx:21.2.1'
-// Import the BoM for the Firebase platform
-    implementation platform('com.google.firebase:firebase-bom:31.2.3')
-    // Declare the dependency for the Cloud Firestore library
-    // When using the BoM, you don't specify versions in Firebase library dependencies
-    implementation 'com.google.firebase:firebase-firestore-ktx'
-    // Import the BoM for the Firebase platform
-    implementation platform('com.google.firebase:firebase-bom:31.2.3')
-    // Add the dependency for the Firebase Authentication library
-    // When using the BoM, you don't specify versions in Firebase library dependencies
-    implementation 'com.google.firebase:firebase-auth-ktx'
-
 
 }
