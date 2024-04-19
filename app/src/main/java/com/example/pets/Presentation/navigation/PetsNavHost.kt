@@ -4,11 +4,11 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.pets.Presentation.screens.Authorization.Login.Authotization
+import com.example.pets.Presentation.screens.Auth.Login.Authotization
 import com.example.pets.Presentation.screens.Welcome.Main
 import com.example.pets.screens.*
 import com.example.pets.Presentation.screens.Passport.StartScreen
-import com.example.pets.Presentation.screens.Authorization.registration.Registration
+import com.example.pets.Presentation.screens.Auth.registration.Registration
 import com.example.pets.Presentation.screens.shop.Shoping_Tovar
 
 
@@ -33,7 +33,7 @@ sealed class NavRoute(val route:String){
 
 @Composable
 fun PetsNavHost() {
-    val navController= rememberNavController()
+    val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = NavRoute.Authotization.route ){
         composable(NavRoute.Start.route){
@@ -68,9 +68,6 @@ fun PetsNavHost() {
         }
         composable(NavRoute.Passport_Edit.route){
             Passport_Edit(navController = navController)
-        }
-        composable(NavRoute.Passport_Notes.route){
-            Passport_Notes(navController = navController)
         }
         composable(NavRoute.Shoping.route){
             Shoping(navController = navController)

@@ -12,10 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.pets.Data.User
 import com.example.pets.Presentation.theme.Typography
 
 @Composable()
-fun CustomItem(person: Person){
+fun CustomItem(person: User){
     Row(
         modifier = Modifier
             .background(Color.White)
@@ -31,7 +32,7 @@ fun CustomItem(person: Person){
             fontWeight = FontWeight.Bold
         )
         Text(
-            text = person.firsName,
+            text = person.firstName,
             color = Color.Black,
             fontSize = Typography.h5.fontSize,
             fontWeight = FontWeight.Normal

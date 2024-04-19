@@ -1,4 +1,4 @@
-package com.example.pets.Presentation.screens.Authorization.registration
+package com.example.pets.Presentation.screens.Auth.registration
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*

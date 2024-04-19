@@ -1,4 +1,4 @@
-package com.example.pets.Presentation.screens.Authorization.Login
+package com.example.pets.Presentation.screens.Auth.Login
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
