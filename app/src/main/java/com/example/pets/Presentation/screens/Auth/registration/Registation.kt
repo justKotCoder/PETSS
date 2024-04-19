@@ -25,7 +25,7 @@ import com.example.pets.Presentation.theme.PetsTheme
 
 
 @Composable
-fun Registration(@PreviewParameter(PreviewParameterProvider::class)navController: NavController){
+fun Registration(navController: NavController){
     var email by remember {
         mutableStateOf("")
     }
@@ -48,7 +48,7 @@ fun Registration(@PreviewParameter(PreviewParameterProvider::class)navController
             }
             TextField(
                 value = email,
-                onValueChange ={email=it},
+                onValueChange ={ email = it },
                 leadingIcon = { Icon(Icons.Filled.Email, contentDescription = "Поиск") },
                 shape = RoundedCornerShape(20.dp),
                 maxLines = 1,
@@ -63,6 +63,9 @@ fun Registration(@PreviewParameter(PreviewParameterProvider::class)navController
                 modifier = Modifier.fillMaxWidth()
             )
             Button(onClick = {
+                // TODO
+
+
                 navController.navigate(NavRoute.Registration_2.route)
             },
                 shape = RoundedCornerShape(20.dp),
