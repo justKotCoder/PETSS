@@ -1,8 +1,12 @@
-package com.example.pets.Data
+package com.example.pets.Data.Server
 
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import io.github.jan.supabase.createSupabaseClient
 import io.github.jan.supabase.gotrue.Auth
 import io.github.jan.supabase.postgrest.Postgrest
+import javax.inject.Singleton
 
 object Server {
 

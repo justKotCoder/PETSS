@@ -5,10 +5,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.pets.Presentation.screens.Auth.Login.Authotization
+import com.example.pets.Presentation.screens.Auth.registration.Registration
 import com.example.pets.Presentation.screens.Welcome.Main
 import com.example.pets.screens.*
 import com.example.pets.Presentation.screens.Passport.StartScreen
-import com.example.pets.Presentation.screens.Auth.registration.Registration
 import com.example.pets.Presentation.screens.shop.Shoping_Tovar
 
 

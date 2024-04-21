@@ -4,9 +4,16 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class User(
-    val uuid: String,
-    val firstName: String,
-    val lastName: String,
-    val rating:Int,
-    val image: Int
-)
+    val uuid: String? = null,
+    val firstName: String = FIRSTNAME_UNKNOWN ,
+    val lastName: String = LASTNAME_UNKNOWN,
+    val rating:Int = DEFAULT_RATING,
+    val image: Int? = null
+) {
+    companion object {
+        const val FIRSTNAME_UNKNOWN = "Unknown Name"
+        const val LASTNAME_UNKNOWN = "Unknown Name"
+        const val DEFAULT_RATING = 0
+    }
+
+}
