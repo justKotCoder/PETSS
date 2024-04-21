@@ -40,7 +40,7 @@ fun StartScreen(navController: NavController) {
             Box(
                 Modifier
                     .fillMaxSize()
-                    .background(color = colorResource(id = R.color.Font_Main))
+
             ) {
                 Spacer(
                     modifier = Modifier
@@ -59,25 +59,24 @@ fun StartScreen(navController: NavController) {
                     Box(
                         modifier = Modifier
                             .weight(1f)
-                            .fillMaxSize()
                     ) {
                         Image(
                             imageVector = ImageVector.vectorResource(R.drawable.haski2),
                             contentDescription = "Хаски",
-                            modifier = Modifier.fillMaxSize()
+                            modifier = Modifier
+                                .padding(top =180.dp)
                         )
-
-
                     }
-
                     Text(
                         text = "У вас ещё нет питомцев !",
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier
+                            .padding(bottom =140.dp)
                             .width(256.dp)
                             .height(28.dp),
                         color = Blue200,
                         fontSize = 22.sp,
                         textAlign = TextAlign.Center
+
                     )
 
                     Button(
@@ -96,6 +95,7 @@ fun StartScreen(navController: NavController) {
                     }
                 }
             }
+
 
         }
     }

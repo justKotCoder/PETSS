@@ -70,7 +70,7 @@ fun PetsNavHost() {
             Passport_Edit(navController = navController)
         }
         composable(NavRoute.Passport_Notes.route){
-            Passport_Notes(navController = navController)
+           // Passport_Notes(navController = navController)
         }
         composable(NavRoute.Shoping.route){
             Shoping(navController = navController)

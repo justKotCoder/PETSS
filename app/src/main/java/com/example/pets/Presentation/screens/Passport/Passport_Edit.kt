@@ -111,7 +111,7 @@ fun Passport_Edit(navController: NavController){
                         Text(text = "Порода", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=10.dp))
                         Box() {
                         TextField(
-                            value = "Race",
+                            value = "крутая короче",
                             onValueChange = { "/*TODO*/ " },
                             shape = RoundedCornerShape(20.dp),
                             maxLines = 1,
@@ -134,9 +134,23 @@ fun Passport_Edit(navController: NavController){
                             )
                     }
                     }
-                    PassportBar(navController)
+                    //PassportBar(navController)
                 }
                 Ctroka_3()
+                Text(text = "Окрас", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=16.dp))
+                Box(
+                    Modifier
+                        .padding(top = 4.dp)
+                        .clip(RoundedCornerShape(20.dp))
+                        .fillMaxWidth()
+                        .height(56.dp)
+                        .background(Color.White)){
+                    Text(text = "Рыженький", fontSize = 16.sp, color = colorResource(id = R.color.color_text), modifier = Modifier
+                        .align(
+                            Alignment.CenterStart
+                        )
+                        .padding(start = 24.dp))
+                }
                 Column(
                     Modifier
                         .padding(top = 24.dp)
@@ -154,7 +168,10 @@ fun Passport_Edit(navController: NavController){
                 ) {
                     Text(text ="Добавить параметр", fontSize = 16.sp , color = colorResource(id =R.color.color_text ), modifier = Modifier.padding(top=16.dp,start=24.dp))
                 }
-                Text(text = "Чип", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=16.dp))
+
+
+
+                Text(text = "Номер чипа", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=16.dp))
                 Box(
                     Modifier
                         .padding(top = 4.dp)
