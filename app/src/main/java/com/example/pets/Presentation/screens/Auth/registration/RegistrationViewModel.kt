@@ -7,15 +7,17 @@ import com.example.pets.Domain.IRegistrationViewModel
 import com.example.pets.Domain.ResendOTPUseCase
 import com.example.pets.Domain.SendOTPUseCase
 import com.example.pets.Domain.SignUpUseCase
+import com.example.pets.Domain.SignUpWithEmailOnlyUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class RegistrationViewModel @Inject constructor(
-    private val signUpUseCase: SignUpUseCase,
+    private val signUpWithEmailUseCase: SignUpUseCase,
     private val sendOTPUseCase: SendOTPUseCase,
     private val resendOTPUseCase: ResendOTPUseCase,
+    private val signUpWithEmailOnlyUseCase: SignUpWithEmailOnlyUseCase,
     ): ViewModel() ,IRegistrationViewModel {
 
     private var user = User()
@@ -28,9 +30,15 @@ class RegistrationViewModel @Inject constructor(
         user = newUser
     }
 
-    override fun signUp(email: String, password: String) {
+    override fun signUpWithEmail(email: String, password: String) {
         viewModelScope.launch {
-            signUpUseCase.signUp(email, password)
+            signUpWithEmailUseCase.signUp(email, password)
+        }
+    }
+
+    override fun signUpWithEmailOnly(email: String) {
+        viewModelScope.launch {
+            signUpWithEmailOnlyUseCase.signUp(email)
         }
     }
 

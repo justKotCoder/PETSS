@@ -1,6 +1,5 @@
 package com.example.pets.Domain
 
-import androidx.lifecycle.ViewModel
 import com.example.pets.Data.User
 
 interface IRegistrationViewModel {
@@ -9,7 +8,8 @@ interface IRegistrationViewModel {
 
     fun setUser(newUser: User)
 
-    fun signUp(email: String, password: String)
+    fun signUpWithEmail(email: String, password: String)
+    fun signUpWithEmailOnly(email: String)
 
     fun sendOTP(email: String, otp: String)
 

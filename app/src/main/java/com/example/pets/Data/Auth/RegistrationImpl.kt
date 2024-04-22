@@ -5,6 +5,7 @@ import com.example.pets.Domain.Registration
 import io.github.jan.supabase.gotrue.OtpType
 import io.github.jan.supabase.gotrue.auth
 import io.github.jan.supabase.gotrue.providers.builtin.Email
+import io.github.jan.supabase.gotrue.providers.builtin.OTP
 import javax.inject.Singleton
 
 
@@ -14,16 +15,22 @@ object RegistrationImpl : Registration {
     private val auth = Server.server.auth
 
     //User registration request to server
-    override suspend fun signUp(email: String, password: String) {
+    override suspend fun signUpWithEmail(email: String, password: String) {
         auth.signUpWith(Email) {
             this.email = email
-            this.password = email
+            this.password = password
         }
 
     }
 
+    override suspend fun signUpWithEmailOnly(email: String) {
+        auth.signUpWith(OTP) {
+            this.email = email
+        }
+    }
+
     //Send OTP code to user email request to server
-    override suspend fun sendOTP(email: String, otp: String) {
+    override suspend fun verifyOTP(email: String, otp: String) {
         auth.verifyEmailOtp(OtpType.Email.EMAIL, email, otp)
     }
 

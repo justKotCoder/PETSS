@@ -100,9 +100,10 @@ fun Registration_2(navController: NavController, viewModel: IRegistrationViewMod
                     Color.Red},
                 modifier = Modifier.padding(top=8.dp))
             Button(onClick = {
-//                val userEmail = viewModel.getUser().email
-//                viewModel.sendOTP(userEmail!!, otp = otp)
-                Log.d("MyLog", "Reg2 ${viewModel.getUser()}")
+                if(otp.isNotEmpty()) {
+                    val userEmail = viewModel.getUser().email
+                    viewModel.sendOTP(userEmail!!, otp = otp)
+                }
             },
                 shape = RoundedCornerShape(20.dp),
                 colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.icon), contentColor = Color.Black),
@@ -136,7 +137,11 @@ class PreviewViewModel() : IRegistrationViewModel {
         //TODO("Not yet implemented")
     }
 
-    override fun signUp(email: String, password: String) {
+    override fun signUpWithEmail(email: String, password: String) {
+        //TODO("Not yet implemented")
+    }
+
+    override fun signUpWithEmailOnly(email: String) {
         //TODO("Not yet implemented")
     }
 

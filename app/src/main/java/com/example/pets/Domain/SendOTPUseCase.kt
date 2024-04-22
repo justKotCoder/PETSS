@@ -7,6 +7,6 @@ import javax.inject.Singleton
 @Singleton
 class SendOTPUseCase @Inject constructor(private val repository: RegistrationImpl) {
     suspend fun sendOTP(email: String, otp: String) {
-        repository.sendOTP(email, otp)
+        repository.verifyOTP(email, otp)
     }
 }

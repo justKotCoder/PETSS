@@ -22,9 +22,8 @@ import com.example.pets.Data.User
 import com.example.pets.Domain.IRegistrationViewModel
 import com.example.pets.Presentation.navigation.NavRoute
 import com.example.pets.R
-
 import com.example.pets.Presentation.theme.PetsTheme
-import dagger.hilt.android.lifecycle.HiltViewModel
+
 
 
 @Composable
@@ -78,9 +77,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
                 )
                 Button(
                     onClick = {
-                        //viewModel.signUp(email, "12345678")
+                        viewModel.signUpWithEmailOnly(email)
                         setUserData(viewModel, email)
-                        Log.d("MyLog", "${viewModel.getUser()}")
                         navigateToRegistration2(navController)
                     },
                     shape = RoundedCornerShape(20.dp),
@@ -126,7 +124,11 @@ class PreviewViewModel() : IRegistrationViewModel {
         //TODO("Not yet implemented")
     }
 
-    override fun signUp(email: String, password: String) {
+    override fun signUpWithEmail(email: String, password: String) {
+        //TODO("Not yet implemented")
+    }
+
+    override fun signUpWithEmailOnly(email: String) {
         //TODO("Not yet implemented")
     }
 
