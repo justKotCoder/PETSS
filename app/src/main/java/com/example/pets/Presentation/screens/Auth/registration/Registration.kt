@@ -18,25 +18,21 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pets.Data.User
+import com.example.pets.Presentation.navigation.NavRoute
 import com.example.pets.R
 
 import com.example.pets.Presentation.theme.PetsTheme
-import javax.inject.Inject
 
 
-
-
-
-    @Composable
-    fun Registration(navController: NavController) {
+@Composable
+    fun Registration(navController: NavController, viewModel: RegistrationViewModel) {
         var email by remember {
             mutableStateOf("")
         }
 
-        val viewModel: RegistrationViewModel = hiltViewModel()
-
-
-        val user = User()
+        var user by remember {
+            mutableStateOf(viewModel.getUser())
+        }
 
         Box(
             Modifier
@@ -83,8 +79,9 @@ import javax.inject.Inject
                 )
                 Button(
                     onClick = {
-                        viewModel.signUp(email, "12345678")
-                        //navController.navigate(NavRoute.Registration_2.route)
+                        //viewModel.signUp(email, "12345678")
+                        setUserData(viewModel, email)
+                        navigateToRegistration2(navController)
                     },
                     shape = RoundedCornerShape(20.dp),
                     colors = ButtonDefaults.buttonColors(
@@ -105,11 +102,25 @@ import javax.inject.Inject
     }
 
 
+private fun setUserData(
+    viewModel: RegistrationViewModel,
+    email: String
+) {
+    viewModel.setUser(User(email = email))
+}
 
-    @Preview(showBackground = true)
+
+private fun navigateToRegistration2(
+    navController: NavController,
+) {
+    navController.navigate(NavRoute.Registration_2.route)
+}
+
+
+@Preview(showBackground = true)
     @Composable
-    fun viewRegistration() {
+    fun ViewRegistration() {
         PetsTheme {
-            Registration(navController = rememberNavController())
+            Registration(navController = rememberNavController(), viewModel = hiltViewModel())
         }
     }

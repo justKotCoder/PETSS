@@ -1,7 +1,6 @@
 package com.example.pets.Data.Auth
 
 import com.example.pets.Domain.SignUpUseCase
-import com.example.pets.Presentation.screens.Auth.registration.RegistrationViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,8 +19,5 @@ object ProvideModule {
         return SignUpUseCase(repository)
     }
 
-//    @Provides
-//    fun provideRegistrationViewModel(signUpUseCase: SignUpUseCase) : RegistrationViewModel {
-//        return RegistrationViewModel(signUpUseCase)
-//    }
+
 }

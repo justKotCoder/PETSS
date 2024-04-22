@@ -1,6 +1,7 @@
 package com.example.pets.screens
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -16,14 +17,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.pets.Data.User
+import com.example.pets.Presentation.screens.Auth.registration.RegistrationViewModel
 import com.example.pets.R
 import com.example.pets.Presentation.theme.PetsTheme
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @Composable
-fun Registration_2(navController: NavController){
+fun Registration_2(navController: NavController, viewModel: RegistrationViewModel){
 
     Box(
         Modifier
@@ -91,7 +95,7 @@ fun Registration_2(navController: NavController){
                     Color.Red},
                 modifier = Modifier.padding(top=8.dp))
             Button(onClick = {
-
+                Log.d("MyLog", "${viewModel.getUser()}")
             },
                 shape = RoundedCornerShape(20.dp),
                 colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.icon), contentColor = Color.Black),
@@ -117,7 +121,9 @@ fun Registration_2(navController: NavController){
 @Preview(showBackground = true)
 @Composable
 fun viewRegistration2(){
+    //blanking plug
+    val user = User()
     PetsTheme {
-        Registration_2(navController = rememberNavController())
+        Registration_2(navController = rememberNavController(), viewModel = hiltViewModel())
     }
 }

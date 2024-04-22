@@ -1,11 +1,14 @@
 package com.example.pets.Presentation.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.pets.Data.User
 import com.example.pets.Presentation.screens.Auth.Login.Authotization
 import com.example.pets.Presentation.screens.Auth.registration.Registration
+import com.example.pets.Presentation.screens.Auth.registration.RegistrationViewModel
 import com.example.pets.Presentation.screens.Welcome.Main
 import com.example.pets.screens.*
 import com.example.pets.Presentation.screens.Passport.StartScreen
@@ -35,15 +38,18 @@ sealed class NavRoute(val route:String){
 fun PetsNavHost() {
     val navController = rememberNavController()
 
+    //Registration viewModel using singleton
+    val viewModel: RegistrationViewModel = hiltViewModel()
+
     NavHost(navController = navController, startDestination = NavRoute.Authotization.route ){
         composable(NavRoute.Start.route){
             Main()
         }
         composable(NavRoute.Registration.route){
-            Registration(navController = navController)
+            Registration(navController = navController, viewModel = viewModel)
         }
         composable(NavRoute.Registration_2.route){
-            Registration_2(navController = navController)
+            Registration_2(navController = navController, viewModel = viewModel)
         }
         composable(NavRoute.Registration_3.route){
             Registration_3(navController = navController)
