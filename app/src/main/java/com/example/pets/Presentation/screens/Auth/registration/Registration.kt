@@ -1,5 +1,6 @@
 package com.example.pets.Presentation.screens.Auth.registration
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -18,20 +19,18 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pets.Data.User
+import com.example.pets.Domain.IRegistrationViewModel
 import com.example.pets.Presentation.navigation.NavRoute
 import com.example.pets.R
 
 import com.example.pets.Presentation.theme.PetsTheme
+import dagger.hilt.android.lifecycle.HiltViewModel
 
 
 @Composable
-    fun Registration(navController: NavController, viewModel: RegistrationViewModel) {
+    fun Registration(navController: NavController, viewModel: IRegistrationViewModel = hiltViewModel<RegistrationViewModel>()) {
         var email by remember {
             mutableStateOf("")
-        }
-
-        var user by remember {
-            mutableStateOf(viewModel.getUser())
         }
 
         Box(
@@ -81,6 +80,7 @@ import com.example.pets.Presentation.theme.PetsTheme
                     onClick = {
                         //viewModel.signUp(email, "12345678")
                         setUserData(viewModel, email)
+                        Log.d("MyLog", "${viewModel.getUser()}")
                         navigateToRegistration2(navController)
                     },
                     shape = RoundedCornerShape(20.dp),
@@ -103,7 +103,7 @@ import com.example.pets.Presentation.theme.PetsTheme
 
 
 private fun setUserData(
-    viewModel: RegistrationViewModel,
+    viewModel: IRegistrationViewModel,
     email: String
 ) {
     viewModel.setUser(User(email = email))
@@ -116,11 +116,35 @@ private fun navigateToRegistration2(
     navController.navigate(NavRoute.Registration_2.route)
 }
 
+//fake viewModel to use preview
+class PreviewViewModel() : IRegistrationViewModel {
+    override fun getUser(): User {
+        return User()
+    }
+
+    override fun setUser(newUser: User) {
+        //TODO("Not yet implemented")
+    }
+
+    override fun signUp(email: String, password: String) {
+        //TODO("Not yet implemented")
+    }
+
+    override fun sendOTP(email: String, otp: String) {
+        //TODO("Not yet implemented")
+    }
+
+    override fun resendOTP(email: String) {
+        //ODO("Not yet implemented")
+    }
+
+}
+
 
 @Preview(showBackground = true)
-    @Composable
-    fun ViewRegistration() {
-        PetsTheme {
-            Registration(navController = rememberNavController(), viewModel = hiltViewModel())
-        }
+@Composable
+fun ViewRegistration() {
+    PetsTheme {
+        Registration(navController = rememberNavController(), PreviewViewModel())
     }
+}

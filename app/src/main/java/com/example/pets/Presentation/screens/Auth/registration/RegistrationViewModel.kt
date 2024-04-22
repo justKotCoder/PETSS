@@ -3,6 +3,7 @@ package com.example.pets.Presentation.screens.Auth.registration
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pets.Data.User
+import com.example.pets.Domain.IRegistrationViewModel
 import com.example.pets.Domain.ResendOTPUseCase
 import com.example.pets.Domain.SendOTPUseCase
 import com.example.pets.Domain.SignUpUseCase
@@ -15,31 +16,31 @@ class RegistrationViewModel @Inject constructor(
     private val signUpUseCase: SignUpUseCase,
     private val sendOTPUseCase: SendOTPUseCase,
     private val resendOTPUseCase: ResendOTPUseCase,
-    ): ViewModel() {
+    ): ViewModel() ,IRegistrationViewModel {
 
     private var user = User()
 
-    fun getUser(): User {
+    override fun getUser(): User {
         return user
     }
 
-    fun setUser(newUser: User) {
+    override fun setUser(newUser: User) {
         user = newUser
     }
 
-    fun signUp(email: String, password: String) {
+    override fun signUp(email: String, password: String) {
         viewModelScope.launch {
             signUpUseCase.signUp(email, password)
         }
     }
 
-    fun sendOTPUseCase(email: String, otp: String) {
+    override fun sendOTP(email: String, otp: String) {
         viewModelScope.launch {
             sendOTPUseCase.sendOTP(email, otp)
         }
     }
 
-    fun resendOTPUseCase(email: String) {
+    override fun resendOTP(email: String) {
         viewModelScope.launch {
             resendOTPUseCase.sendOTP(email)
         }

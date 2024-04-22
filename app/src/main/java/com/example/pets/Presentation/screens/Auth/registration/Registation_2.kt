@@ -21,13 +21,18 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pets.Data.User
+import com.example.pets.Domain.IRegistrationViewModel
 import com.example.pets.Presentation.screens.Auth.registration.RegistrationViewModel
 import com.example.pets.R
 import com.example.pets.Presentation.theme.PetsTheme
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @Composable
-fun Registration_2(navController: NavController, viewModel: RegistrationViewModel){
+fun Registration_2(navController: NavController, viewModel: IRegistrationViewModel = hiltViewModel<RegistrationViewModel>()){
+
+    val otp by remember {
+        mutableStateOf("")
+    }
 
     Box(
         Modifier
@@ -95,7 +100,9 @@ fun Registration_2(navController: NavController, viewModel: RegistrationViewMode
                     Color.Red},
                 modifier = Modifier.padding(top=8.dp))
             Button(onClick = {
-                Log.d("MyLog", "${viewModel.getUser()}")
+//                val userEmail = viewModel.getUser().email
+//                viewModel.sendOTP(userEmail!!, otp = otp)
+                Log.d("MyLog", "Reg2 ${viewModel.getUser()}")
             },
                 shape = RoundedCornerShape(20.dp),
                 colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.icon), contentColor = Color.Black),
@@ -118,12 +125,35 @@ fun Registration_2(navController: NavController, viewModel: RegistrationViewMode
     }
 
 }
+
+//fake viewModel to use preview
+class PreviewViewModel() : IRegistrationViewModel {
+    override fun getUser(): User {
+        return User()
+    }
+
+    override fun setUser(newUser: User) {
+        //TODO("Not yet implemented")
+    }
+
+    override fun signUp(email: String, password: String) {
+        //TODO("Not yet implemented")
+    }
+
+    override fun sendOTP(email: String, otp: String) {
+        //TODO("Not yet implemented")
+    }
+
+    override fun resendOTP(email: String) {
+        //ODO("Not yet implemented")
+    }
+
+}
+
 @Preview(showBackground = true)
 @Composable
 fun viewRegistration2(){
-    //blanking plug
-    val user = User()
     PetsTheme {
-        Registration_2(navController = rememberNavController(), viewModel = hiltViewModel())
+        Registration_2(navController = rememberNavController(), PreviewViewModel())
     }
 }
