@@ -1,7 +1,7 @@
 package com.example.pets.screens
 
 import android.annotation.SuppressLint
-import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -11,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -21,18 +22,26 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pets.Data.User
-import com.example.pets.Domain.IRegistrationViewModel
-import com.example.pets.Presentation.screens.Auth.registration.RegistrationViewModel
+import com.example.pets.Domain.Auth.SignUp.ISignUpViewModel
+import com.example.pets.Presentation.navigation.NavRoute
+import com.example.pets.Presentation.screens.Auth.SignUp.SignUpViewModel
 import com.example.pets.R
 import com.example.pets.Presentation.theme.PetsTheme
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @Composable
-fun Registration_2(navController: NavController, viewModel: IRegistrationViewModel = hiltViewModel<RegistrationViewModel>()){
+fun Registration_2(navController: NavController, viewModel: ISignUpViewModel = hiltViewModel<SignUpViewModel>()){
 
-    val otp by remember {
+    val context = LocalContext.current
+
+    var otp by remember {
         mutableStateOf("")
     }
+
+    var otpError by remember {
+        mutableStateOf(false)
+    }
+
 
     Box(
         Modifier
@@ -55,55 +64,48 @@ fun Registration_2(navController: NavController, viewModel: IRegistrationViewMod
             }
             Box(){
                 TextField(
-                    value = "code",
-                    onValueChange ={ " /*TODO*/ " },
+                    value = otp,
+                    onValueChange = { otp = it },
                     shape = RoundedCornerShape(20.dp),
                     maxLines = 1,
                     colors = TextFieldDefaults.textFieldColors(
-                        textColor = Color.Transparent,
-                        cursorColor = Color.Transparent,
+                        textColor = Color.Black,
+                        cursorColor = Color.Black,
                         focusedIndicatorColor = Color.Transparent,
                         unfocusedIndicatorColor = Color.Transparent,
                         disabledIndicatorColor = Color.Transparent,
                         backgroundColor = Color.White
 
                     ),
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    textStyle = LocalTextStyle.current.copy(textAlign = TextAlign.Center)
                 )
                 Row(modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 8.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center){
-                    for (i in 0..5) {
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            modifier = Modifier.padding(end = 8.dp)
-                        ) {
-
-
-                            Text(text = " "
-                                ,fontSize = 20.sp)
-                            Spacer(
-                                modifier = Modifier
-                                    .width(30.dp)
-                                    .height(2.dp)
-                                    .background(Color.Blue)
-                            )
-
-                        }
-                    }
                 }
             }
             Text(text = "Неверный код, попробуйте еще раз",
                 fontSize = 12.sp,
-                color = if(false){
-                    Color.Transparent}else{
-                    Color.Red},
+                color = if(!otpError){
+                    Color.Transparent
+                }
+                else {
+                    Color.Red
+                },
                 modifier = Modifier.padding(top=8.dp))
             Button(onClick = {
-                if(otp.isNotEmpty()) {
-                    val userEmail = viewModel.getUser().email
-                    viewModel.sendOTP(userEmail!!, otp = otp)
+                try {
+                    if(otp.isNotEmpty() && otp.length == 6) {
+                        val userEmail = viewModel.getUser().email
+                        viewModel.verifyOTP(userEmail!!, otp = otp)
+                        navController.navigate(NavRoute.Registration_3.route)
+                    }
+                } catch (e: Exception) {
+                    otpError = true
+                    Toast.makeText(context, "Неверный код подтверждения!", Toast.LENGTH_SHORT).show()
                 }
+
             },
                 shape = RoundedCornerShape(20.dp),
                 colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = R.color.icon), contentColor = Color.Black),
@@ -118,7 +120,11 @@ fun Registration_2(navController: NavController, viewModel: IRegistrationViewMod
             )
             Text(text="Выслать еще раз", fontSize = 14.sp,modifier = Modifier
                 .padding(top = 24.dp)
-                .clickable { }, color = colorResource(id = R.color.color_text)
+                .clickable {
+                    val userEmail = viewModel.getUser().email!!
+                    viewModel.resendOTP(userEmail)
+
+                }, color = colorResource(id = R.color.color_text)
             )
 
         }
@@ -128,7 +134,7 @@ fun Registration_2(navController: NavController, viewModel: IRegistrationViewMod
 }
 
 //fake viewModel to use preview
-class PreviewViewModel() : IRegistrationViewModel {
+class PreviewViewModel2() : ISignUpViewModel {
     override fun getUser(): User {
         return User()
     }
@@ -137,7 +143,7 @@ class PreviewViewModel() : IRegistrationViewModel {
         //TODO("Not yet implemented")
     }
 
-    override fun signUpWithEmail(email: String, password: String) {
+    override fun signInWithEmail(email: String, password: String) {
         //TODO("Not yet implemented")
     }
 
@@ -145,7 +151,7 @@ class PreviewViewModel() : IRegistrationViewModel {
         //TODO("Not yet implemented")
     }
 
-    override fun sendOTP(email: String, otp: String) {
+    override fun verifyOTP(email: String, otp: String) {
         //TODO("Not yet implemented")
     }
 
@@ -159,6 +165,6 @@ class PreviewViewModel() : IRegistrationViewModel {
 @Composable
 fun viewRegistration2(){
     PetsTheme {
-        Registration_2(navController = rememberNavController(), PreviewViewModel())
+        Registration_2(navController = rememberNavController(), PreviewViewModel2())
     }
 }

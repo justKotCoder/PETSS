@@ -1,17 +1,18 @@
-package com.example.pets.Domain
+package com.example.pets.Domain.Auth.SignUp
 
 import com.example.pets.Data.User
 
-interface IRegistrationViewModel {
+interface ISignUpViewModel {
 
     fun getUser(): User
 
     fun setUser(newUser: User)
 
-    fun signUpWithEmail(email: String, password: String)
+    fun signInWithEmail(email: String, password: String)
+
     fun signUpWithEmailOnly(email: String)
 
-    fun sendOTP(email: String, otp: String)
+    fun verifyOTP(email: String, otp: String)
 
     fun resendOTP(email: String)
 

@@ -1,7 +1,7 @@
-package com.example.pets.Domain
+package com.example.pets.Domain.Auth.SignUp
 
-interface Registration {
-    suspend fun signUpWithEmail(email: String, password: String)
+interface SignUpRepository {
+    suspend fun signInUserWithEmail(email: String, password: String)
 
     suspend fun verifyOTP(email: String, otp: String)
 

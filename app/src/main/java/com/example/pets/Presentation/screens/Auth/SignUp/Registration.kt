@@ -1,6 +1,5 @@
-package com.example.pets.Presentation.screens.Auth.registration
+package com.example.pets.Presentation.screens.Auth.SignUp
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -19,7 +18,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pets.Data.User
-import com.example.pets.Domain.IRegistrationViewModel
+import com.example.pets.Domain.Auth.SignUp.ISignUpViewModel
 import com.example.pets.Presentation.navigation.NavRoute
 import com.example.pets.R
 import com.example.pets.Presentation.theme.PetsTheme
@@ -27,7 +26,7 @@ import com.example.pets.Presentation.theme.PetsTheme
 
 
 @Composable
-    fun Registration(navController: NavController, viewModel: IRegistrationViewModel = hiltViewModel<RegistrationViewModel>()) {
+    fun Registration(navController: NavController, viewModel: ISignUpViewModel = hiltViewModel<SignUpViewModel>()) {
         var email by remember {
             mutableStateOf("")
         }
@@ -101,7 +100,7 @@ import com.example.pets.Presentation.theme.PetsTheme
 
 
 private fun setUserData(
-    viewModel: IRegistrationViewModel,
+    viewModel: ISignUpViewModel,
     email: String
 ) {
     viewModel.setUser(User(email = email))
@@ -115,7 +114,7 @@ private fun navigateToRegistration2(
 }
 
 //fake viewModel to use preview
-class PreviewViewModel() : IRegistrationViewModel {
+class PreviewViewModel() : ISignUpViewModel {
     override fun getUser(): User {
         return User()
     }
@@ -124,7 +123,7 @@ class PreviewViewModel() : IRegistrationViewModel {
         //TODO("Not yet implemented")
     }
 
-    override fun signUpWithEmail(email: String, password: String) {
+    override fun signInWithEmail(email: String, password: String) {
         //TODO("Not yet implemented")
     }
 
@@ -132,7 +131,7 @@ class PreviewViewModel() : IRegistrationViewModel {
         //TODO("Not yet implemented")
     }
 
-    override fun sendOTP(email: String, otp: String) {
+    override fun verifyOTP(email: String, otp: String) {
         //TODO("Not yet implemented")
     }
 

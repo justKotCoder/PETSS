@@ -128,7 +128,7 @@ fun Password_Recovery_3(navController: NavController){
             Button(onClick = {
 
                 if("password" == copy_password && "password".length > 8){
-                    navController.run { navigate(NavRoute.Authotization.route){popUpTo(0)} }
+                    navController.run { navigate(NavRoute.SignIn.route){popUpTo(0)} }
                     }
                 else{
                     Error=true

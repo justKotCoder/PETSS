@@ -1,24 +1,24 @@
-package com.example.pets.Presentation.screens.Auth.registration
+package com.example.pets.Presentation.screens.Auth.SignUp
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pets.Data.User
-import com.example.pets.Domain.IRegistrationViewModel
-import com.example.pets.Domain.ResendOTPUseCase
-import com.example.pets.Domain.SendOTPUseCase
-import com.example.pets.Domain.SignUpUseCase
-import com.example.pets.Domain.SignUpWithEmailOnlyUseCase
+import com.example.pets.Domain.Auth.SignUp.ISignUpViewModel
+import com.example.pets.Domain.Auth.SignUp.ResendOTPUseCase
+import com.example.pets.Domain.Auth.SignUp.SendOTPUseCase
+import com.example.pets.Domain.Auth.SignUp.SignInWithEmailUseCase
+import com.example.pets.Domain.Auth.SignUp.SignUpWithEmailOnlyUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RegistrationViewModel @Inject constructor(
-    private val signUpWithEmailUseCase: SignUpUseCase,
-    private val sendOTPUseCase: SendOTPUseCase,
+class SignUpViewModel @Inject constructor(
+    private val signUpWithEmailUseCase: SignInWithEmailUseCase,
+    private val verifyOTPUseCase: SendOTPUseCase,
     private val resendOTPUseCase: ResendOTPUseCase,
     private val signUpWithEmailOnlyUseCase: SignUpWithEmailOnlyUseCase,
-    ): ViewModel() ,IRegistrationViewModel {
+    ): ViewModel(), ISignUpViewModel {
 
     private var user = User()
 
@@ -30,9 +30,9 @@ class RegistrationViewModel @Inject constructor(
         user = newUser
     }
 
-    override fun signUpWithEmail(email: String, password: String) {
+    override fun signInWithEmail(email: String, password: String) {
         viewModelScope.launch {
-            signUpWithEmailUseCase.signUp(email, password)
+            signUpWithEmailUseCase.signIn(email, password)
         }
     }
 
@@ -42,9 +42,9 @@ class RegistrationViewModel @Inject constructor(
         }
     }
 
-    override fun sendOTP(email: String, otp: String) {
+    override fun verifyOTP(email: String, otp: String) {
         viewModelScope.launch {
-            sendOTPUseCase.sendOTP(email, otp)
+            verifyOTPUseCase.sendOTP(email, otp)
         }
     }
 
