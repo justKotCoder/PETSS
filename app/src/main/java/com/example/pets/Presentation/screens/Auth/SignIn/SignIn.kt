@@ -1,6 +1,8 @@
-package com.example.pets.Presentation.screens.Authorization.Login
+package com.example.pets.Presentation.screens.Auth.SignIn
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -19,8 +21,10 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.pets.Domain.Auth.SignIn.ISignInViewModel
 import com.example.pets.R
 
 
@@ -28,21 +32,32 @@ import com.example.pets.Presentation.navigation.NavRoute
 //import com.example.pets.pets
 
 import com.example.pets.Presentation.theme.PetsTheme
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun Authotization(navController: NavController) {
+fun SignIn(navController: NavController, viewModel: ISignInViewModel = hiltViewModel<SignInViewModel>()) {
     var email by remember {
         mutableStateOf("")
     }
+
     var password by remember {
         mutableStateOf("")
     }
+
     var visibility by remember {
         mutableStateOf(false)
     }
+
+    val coroutineScope = rememberCoroutineScope()
+
+
+
+
     val context = LocalContext.current
+
     Scaffold() {
         Box(
             Modifier
@@ -128,7 +143,7 @@ fun Authotization(navController: NavController) {
 
                 Button(
                     onClick = {
-
+                        viewModel.signIn(email, password)
 
                     },
 
@@ -161,11 +176,28 @@ fun Authotization(navController: NavController) {
 
 }
 
+
+//fake ViewModel to use preview
+class ViewModelPreview : ISignInViewModel {
+    override fun signIn(email: String, password: String) {
+        TODO("Not yet implemented")
+    }
+
+}
+
+//Error if invalid password/email
+fun showError(context: Context) {
+    Toast
+        .makeText(context, "Неверный логин либо пароль!", Toast.LENGTH_SHORT)
+        .show()
+}
+
+
 @Preview(showBackground = true)
 @Composable
-fun pewStartScreen() {
+fun PewStartScreen() {
     PetsTheme {
-        Authotization(navController = rememberNavController())
+        SignIn(navController = rememberNavController(), viewModel = ViewModelPreview())
     }
 }
 

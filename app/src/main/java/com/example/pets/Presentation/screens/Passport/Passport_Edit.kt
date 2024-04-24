@@ -184,7 +184,7 @@ fun Passport_Edit(navController: NavController){
                 }
                 Button(onClick = {
 
-                    navController.navigate(NavRoute.Authotization.route)},
+                    navController.navigate(NavRoute.SignIn.route)},
                     Modifier
                         .fillMaxWidth()
                         .padding(top = 16.dp),

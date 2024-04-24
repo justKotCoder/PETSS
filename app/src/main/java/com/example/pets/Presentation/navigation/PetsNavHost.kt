@@ -1,14 +1,17 @@
 package com.example.pets.Presentation.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.pets.Presentation.screens.Authorization.Login.Authotization
+import com.example.pets.Presentation.screens.Auth.SignIn.SignIn
+import com.example.pets.Presentation.screens.Auth.SignIn.SignInViewModel
+import com.example.pets.Presentation.screens.Auth.SignUp.Registration
+import com.example.pets.Presentation.screens.Auth.SignUp.SignUpViewModel
 import com.example.pets.Presentation.screens.Welcome.Main
 import com.example.pets.screens.*
 import com.example.pets.Presentation.screens.Passport.StartScreen
-import com.example.pets.Presentation.screens.Authorization.registration.Registration
 import com.example.pets.Presentation.screens.shop.Shoping_Tovar
 
 
@@ -26,33 +29,39 @@ sealed class NavRoute(val route:String){
     object Passport_Notes: NavRoute("passport_notes")
     object Passport_Clendar: NavRoute("passport_clendar")
     object Shoping: NavRoute("shop_screen")
-    object Authotization: NavRoute("authotiz_screen")
+    object SignIn: NavRoute("Login")
     object Shoping_Tovar: NavRoute("shoping_tovar")
     object Start_Passpoer: NavRoute("start_passport")
 }
 
 @Composable
 fun PetsNavHost() {
-    val navController= rememberNavController()
+    val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = NavRoute.Authotization.route ){
+    //SignUp viewModel
+    val signUpViewModel: SignUpViewModel = hiltViewModel()
+
+    //SignIn viewModel
+    val signInViewModel: SignInViewModel = hiltViewModel()
+
+    NavHost(navController = navController, startDestination = NavRoute.SignIn.route ){
         composable(NavRoute.Start.route){
             Main()
         }
         composable(NavRoute.Registration.route){
-            Registration(navController = navController)
+            Registration(navController = navController, viewModel = signUpViewModel)
         }
         composable(NavRoute.Registration_2.route){
-            Registration_2(navController = navController)
+            Registration_2(navController = navController, viewModel = signUpViewModel)
         }
         composable(NavRoute.Registration_3.route){
-            Registration_3(navController = navController)
+            Registration_3(navController = navController, viewModel = signUpViewModel)
         }
         composable(NavRoute.Registration_4.route){
-           Registration_4(navController = navController)
+            Registration_4(navController = navController, viewModel = signUpViewModel)
         }
-        composable(NavRoute.Authotization.route){
-            Authotization(navController = navController)
+        composable(NavRoute.SignIn.route){
+            SignIn(navController = navController, viewModel = signInViewModel)
         }
         composable(NavRoute.Password_Recovery.route){
             Password_Recovery(navController = navController)
@@ -68,9 +77,6 @@ fun PetsNavHost() {
         }
         composable(NavRoute.Passport_Edit.route){
             Passport_Edit(navController = navController)
-        }
-        composable(NavRoute.Passport_Notes.route){
-            Passport_Notes(navController = navController)
         }
         composable(NavRoute.Shoping.route){
             Shoping(navController = navController)
