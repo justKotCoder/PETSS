@@ -42,12 +42,13 @@ fun _BottomBar (navController: NavController){
                     Icon(
                         painter = painterResource(id = R.drawable.icon_bar_menu),
                         contentDescription = "",
-                        tint = Color.Gray
+                        tint = Color.White
                     )
                     Icon(
                         painterResource(id = R.drawable.icon_bar_shop),
                         contentDescription = "",
-                        tint = if(navController.currentBackStackEntry?.destination?.route== NavRoute.Shoping.route){ Color.White}else{Color.Gray},
+                        tint = if(navController.currentBackStackEntry?.destination?.route== NavRoute.Shoping.route){
+                            Color.White}else{Color.Gray},
                         modifier = Modifier.clickable {
                             navController.navigate(NavRoute.Shoping.route)
 
@@ -58,12 +59,12 @@ fun _BottomBar (navController: NavController){
                     Icon(
                         painter = painterResource(id = R.drawable.icon_bar_market),
                         contentDescription = "",
-                        tint = Color.Gray
+                        tint = Color.White
                     )
                     Icon(
                         painter = painterResource(id = R.drawable.icon_chat),
                         contentDescription = null,
-                        tint=Color.Gray
+                        tint=Color.White
                     )
                 }
             }

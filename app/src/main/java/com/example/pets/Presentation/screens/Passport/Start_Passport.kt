@@ -62,11 +62,10 @@ fun StartScreen(navController: NavController) {
                             .fillMaxSize()
                     ) {
                         Image(
-                            imageVector = ImageVector.vectorResource(R.drawable.haski2),
+                            imageVector = ImageVector.vectorResource(R.drawable.haski),
                             contentDescription = "Хаски",
                             modifier = Modifier.fillMaxSize()
                         )
-
 
                     }
 

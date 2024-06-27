@@ -28,6 +28,11 @@ import com.example.pets.Presentation.theme.PetsTheme
 import com.example.pets.Presentation.navigation.NavRoute
 import com.example.pets.Presentation.screens.General.PassportBar
 import com.example.pets.Presentation.screens.General._BottomBar
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+
+import androidx.compose.ui.unit.sp
 
 @Preview(showBackground = true)
 @Composable
@@ -60,13 +65,13 @@ fun Passport_Edit(navController: NavController){
             bottomBar = {
                 _BottomBar(navController = navController)
             }
-        
-    
+
+
 
     ) {
         Surface(
             Modifier
-                .fillMaxSize(), color = colorResource(id = R.color.Font_Main)
+                .fillMaxSize(), color = colorResource(id = R.color.white)
         ) {
             Column(
                 Modifier
@@ -81,13 +86,13 @@ fun Passport_Edit(navController: NavController){
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Column {
-                        Text("Профиль Питомца", fontSize = 22.sp, color = colorResource(id = R.color.color_text), modifier = Modifier.padding(top=54.dp))
-                        Text(text = "Имя", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=24.dp))
+                        Text("Профиль Питомца", fontSize = 22.sp, color = colorResource(id = R.color.bar), modifier = Modifier.padding(top=54.dp))
+                        Text(text = "Имя", fontSize = 12.sp, color = colorResource(id = R.color.bar), modifier = Modifier.padding(start = 25.dp,top=24.dp))
                         Box() {
                             TextField(
-                                value = "Name_Petz",
+                                value = "Name_Pet",
                                 onValueChange ={"/*TODO*/ "},
-                                shape = RoundedCornerShape(20.dp),
+                                shape = RoundedCornerShape(10.dp),
                                 maxLines = 1,
                                 colors = TextFieldDefaults.textFieldColors(
                                     textColor = Color.Transparent,
@@ -96,10 +101,11 @@ fun Passport_Edit(navController: NavController){
                                     disabledIndicatorColor = Color.Transparent,
                                     backgroundColor = Color.White
                                 ),
-                                modifier = Modifier.height(42.dp)
-                            )
+                                modifier = Modifier
+                                    .height(42.dp)
+                                    .border(BorderStroke(1.dp, Color.Gray.copy(alpha = 0.2f)), RoundedCornerShape(10.dp))                            )
                             Text(
-                                text = "Name_Petz",
+                                text = "",
                                 fontSize = 16.sp,
                                 color = colorResource(id = R.color.color_text),
                                 modifier = Modifier
@@ -107,13 +113,13 @@ fun Passport_Edit(navController: NavController){
                                     .offset(x = 18.dp)
                             )
                         }
-                        Text(text = "Изменить фотографию", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=2.dp))
-                        Text(text = "Порода", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=10.dp))
+                        //Text(text = "Изменить фотографию", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=2.dp))
+                        Text(text = "Порода", fontSize = 12.sp, color = colorResource(id = R.color.bar), modifier = Modifier.padding(start = 25.dp,top=10.dp))
                         Box() {
                         TextField(
-                            value = "Race",
+                            value = "",
                             onValueChange = { "/*TODO*/ " },
-                            shape = RoundedCornerShape(20.dp),
+                            shape = RoundedCornerShape(10.dp),
                             maxLines = 1,
                             colors = TextFieldDefaults.textFieldColors(
                                 textColor = Color.Transparent,
@@ -123,9 +129,11 @@ fun Passport_Edit(navController: NavController){
                                 backgroundColor = Color.White
                             ),
                             modifier = Modifier.height(42.dp)
-                            )
+                                .height(42.dp)
+                                .border(BorderStroke(1.dp, Color.Gray.copy(alpha = 0.2f)), RoundedCornerShape(10.dp))
+                        )
                             Text(
-                                text = "Race",
+                                text = "",
                                 fontSize = 16.sp,
                                 color = colorResource(id = R.color.color_text),
                                 modifier = Modifier
@@ -134,16 +142,18 @@ fun Passport_Edit(navController: NavController){
                             )
                     }
                     }
-                    PassportBar(navController)
+//                    PassportBar(navController)
                 }
-                Ctroka_3()
+                Add_parameter()
                 Column(
                     Modifier
                         .padding(top = 24.dp)
                         .fillMaxWidth()
                         .height(56.dp)
-                        .clip(RoundedCornerShape(20.dp))
+                        .clip(RoundedCornerShape(10.dp))
                         .background(Color.White)
+                        .height(42.dp)
+                        .border(BorderStroke(1.dp, Color.Gray.copy(alpha = 0.2f)), RoundedCornerShape(10.dp))
                         .clickable {
                             visible = true
                             Scroll = false
@@ -154,13 +164,20 @@ fun Passport_Edit(navController: NavController){
                 ) {
                     Text(text ="Добавить параметр", fontSize = 16.sp , color = colorResource(id =R.color.color_text ), modifier = Modifier.padding(top=16.dp,start=24.dp))
                 }
-                Text(text = "Чип", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=16.dp))
+
+
+                Text(
+                    text = "Чип",
+                    fontSize = 12.sp,
+                    color = colorResource(id = R.color.bar),
+                    modifier = Modifier.padding(start = 25.dp,top=16.dp))
                 Box(
                     Modifier
                         .padding(top = 4.dp)
-                        .clip(RoundedCornerShape(20.dp))
+                        .clip(RoundedCornerShape(10.dp))
                         .fillMaxWidth()
                         .height(56.dp)
+                        .border(BorderStroke(1.dp, Color.Gray.copy(alpha = 0.2f)), RoundedCornerShape(10.dp))
                         .background(Color.White)){
                     Text(text = "QQWERT00-22", fontSize = 16.sp, color = colorResource(id = R.color.color_text), modifier = Modifier
                         .align(
@@ -168,13 +185,40 @@ fun Passport_Edit(navController: NavController){
                         )
                         .padding(start = 24.dp))
                 }
-                Text(text = "Описание", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=16.dp))
+
+                Text(
+                    text = "Окрас",
+                    fontSize = 12.sp,
+                    color = colorResource(id = R.color.bar),
+                    modifier = Modifier.padding(start = 25.dp,top=16.dp))
                 Box(
                     Modifier
                         .padding(top = 4.dp)
-                        .clip(RoundedCornerShape(20.dp))
+                        .clip(RoundedCornerShape(10.dp))
                         .fillMaxWidth()
                         .height(56.dp)
+                        .border(BorderStroke(1.dp, Color.Gray.copy(alpha = 0.2f)), RoundedCornerShape(10.dp))
+                        .background(Color.White)){
+                    Text(text = "Черный", fontSize = 16.sp, color = colorResource(id = R.color.color_text), modifier = Modifier
+                        .align(
+                            Alignment.CenterStart
+                        )
+                        .padding(start = 24.dp))
+                }
+
+
+                Text(
+                    text = "Описание",
+                    fontSize = 12.sp,
+                    color = colorResource(id = R.color.bar),
+                    modifier = Modifier.padding(start = 25.dp,top=16.dp))
+                Box(
+                    Modifier
+                        .padding(top = 4.dp)
+                        .clip(RoundedCornerShape(10.dp))
+                        .fillMaxWidth()
+                        .height(56.dp)
+                        .border(BorderStroke(1.dp, Color.Gray.copy(alpha = 0.2f)), RoundedCornerShape(10.dp))
                         .background(Color.White)){
                     Text(text = "Левое ухо", fontSize = 16.sp, color = colorResource(id = R.color.color_text), modifier = Modifier
                         .align(
@@ -187,14 +231,12 @@ fun Passport_Edit(navController: NavController){
                     navController.navigate(NavRoute.SignIn.route)},
                     Modifier
                         .fillMaxWidth()
-                        .padding(top = 16.dp),
+                        .height(100.dp)//очень тупо но работает
+                        .padding(top = 30.dp),
                     colors = ButtonDefaults.buttonColors(colorResource(id = R.color.Activ_Button)),
-                    shape = CircleShape) {
+                    shape = RoundedCornerShape(10.dp)) {
                     Text(text = "Сохранить изменения", fontSize = 22.sp, color = Color.White)
                 }
-
-
-
             }
             AnimatedVisibility(
                 visible = visible,
@@ -235,7 +277,6 @@ fun Passport_Edit(navController: NavController){
                                 Modifier.padding(start = 24.dp, end = 24.dp, top = 24.dp),
                                 colors = TextFieldDefaults.textFieldColors(
                                     textColor = colorResource(id = R.color.color_tema),
-
                                     backgroundColor = Color.White
                                 ),
                                 textStyle = TextStyle(fontSize = 22.sp),
@@ -275,7 +316,7 @@ fun Passport_Edit(navController: NavController){
 }
 
 @Composable
-fun Ctroka_3 (){
+fun Add_parameter () {
     var visibility by remember {
         mutableStateOf(false)
     }
@@ -286,14 +327,19 @@ fun Ctroka_3 (){
     Row(
         Modifier
             .padding(start = 0.dp)
-            .fillMaxWidth()
-        ,horizontalArrangement = Arrangement.SpaceBetween)
+            .fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
+    )
     {
         Column() {
-            Text(text = "Возраст", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=14.dp))
-            Box(Modifier.width(96.dp)){
+            Text(
+                text = "Возраст",
+                fontSize = 12.sp,
+                color = colorResource(id = R.color.bar),
+                modifier = Modifier.padding(start = 25.dp, top = 14.dp)
+            )
+            Box(Modifier.width(96.dp)) {
                 Box(Modifier.align(Alignment.Center)) {
-                    this@Column.AnimatedVisibility(visible = visibility){
+                    this@Column.AnimatedVisibility(visible = visibility) {
                         LazyColumn(
                             Modifier
                                 .width(80.dp)
@@ -305,10 +351,11 @@ fun Ctroka_3 (){
                                         bottomEnd = 20.dp
                                     )
                                 )
-                                .background(Color.White)) {
+                                .background(Color.White)
+                        ) {
                             items(50) {
-                                if(it!=0){
-                                    Box(Modifier.fillMaxWidth()){
+                                if (it != 0) {
+                                    Box(Modifier.fillMaxWidth()) {
                                         Text(
                                             text = it.toString(),
                                             modifier = Modifier
@@ -318,19 +365,22 @@ fun Ctroka_3 (){
                                                     /*TODO*/
                                                 })
                                     }
-                                }}
+                                }
+                            }
                         }
                     }
                 }
                 Box(
                     Modifier
-                        .clip(RoundedCornerShape(20.dp))
+                        .clip(RoundedCornerShape(10.dp))
                         .fillMaxWidth()
                         .height(42.dp)
                         .background(Color.White)
+                        .height(42.dp)
+                        .border(BorderStroke(1.dp, Color.Gray.copy(alpha = 0.2f)), RoundedCornerShape(10.dp))
                 )
                 {
-                    Icon(painter = painterResource(id = R.drawable.icon_v), contentDescription ="",
+                    Icon(painter = painterResource(id = R.drawable.icon_v), contentDescription = "",
                         Modifier
                             .align(
                                 Alignment.TopEnd
@@ -339,90 +389,83 @@ fun Ctroka_3 (){
                             .clickable {
                                 visibility = !visibility
                                 /*TODO*/
-                            } )
+                            })
                 }
             }
         }
         Column() {
-            Text(text = "Пол", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=14.dp))
+            Text(
+                text = "Пол",
+                fontSize = 12.sp,
+                color = colorResource(id = R.color.bar),
+                modifier = Modifier.padding(start = 25.dp, top = 14.dp)
+            )
             Box(
                 Modifier
-                    .clip(RoundedCornerShape(20.dp))
+                    .clip(RoundedCornerShape(10.dp))
                     .width(207.dp)
                     .height(42.dp)
-                    .background(Color.White))
+                    .background(Color.White)
+                    .border(BorderStroke(1.dp, Color.Gray.copy(alpha = 0.2f)), RoundedCornerShape(10.dp))
+
+            )
             {
-                Row(Modifier.padding(2.dp),horizontalArrangement = Arrangement.SpaceAround){
-                    Button(onClick = { "Женский"
-                        button1=0},
+                Row(
+                    Modifier.padding(2.dp),
+                    horizontalArrangement = Arrangement.SpaceAround) {
+                    Button(
+                        onClick = {
+                            "Женский"
+                            button1 = 0
+                        },
                         Modifier
                             .width(104.dp)
                             .fillMaxHeight(),
 
-                        colors = ButtonDefaults.buttonColors(if(button1==0){Color.Blue}else{Color.White}),
-                        shape = CircleShape,
-                        contentPadding = PaddingValues(0.dp),) {
-                        Text("Женский", fontSize = 16.sp, color = if(button1==0){Color.White}else{Color.Blue})
+                        colors = ButtonDefaults.buttonColors(
+                            if (button1 == 0) {
+                                Color.Blue
+                            } else {
+                                Color.White
+                            }
+                        ),
+                        shape = RoundedCornerShape(10.dp),
+                        contentPadding = PaddingValues(0.dp),
+                    ) {
+                        Text(
+                            "Женский", fontSize = 16.sp, color = if (button1 == 0) {
+                                Color.White
+                            } else {
+                                Color.Blue
+                            }
+                        )
                     }
-                    Button(onClick = { },
+                    Button(
+                        onClick = { },
                         Modifier
                             .width(104.dp)
                             .fillMaxHeight(),
-                        colors = ButtonDefaults.buttonColors(if(button1==1){Color.Blue}else{Color.White}),
-                        shape = CircleShape,
-                        contentPadding = PaddingValues(0.dp),) {
-                        Text("Мужской", fontSize = 16.sp, color = if(button1==1){Color.White}else{Color.Blue})
+                        colors = ButtonDefaults.buttonColors(
+                            if (button1 == 1) {
+                                Color.Blue
+                            } else {
+                                Color.White
+                            }
+                        ),
+                        shape = RoundedCornerShape(10.dp),
+                        contentPadding = PaddingValues(0.dp),
+                    ) {
+                        Text(
+                            "Мужской", fontSize = 16.sp, color = if (button1 == 1) {
+                                Color.White
+                            } else {
+                                Color.Blue
+                            }
+                        )
                     }
                 }
             }
         }
 
     }
-
-
-@Composable
-fun Ctroka_4(){
-
-    val openDialog = remember { mutableStateOf(false) }
-    var deleit by remember {
-        mutableStateOf(0)
-    }
-
-
-    Text(text = "Harackter!!.get(i)", fontSize = 12.sp, modifier = Modifier.padding(start = 25.dp,top=16.dp))
-    TextField(
-        value = "text2",
-        onValueChange ={
-                       " "
-                       },
-        shape = RoundedCornerShape(20.dp),
-        maxLines = 1,
-        colors = TextFieldDefaults.textFieldColors(
-            textColor = colorResource(id = R.color.color_text),
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent,
-            backgroundColor = Color.White
-        ),trailingIcon = {
-            Icon(painterResource(id = R.drawable.icon_delelit), contentDescription =null, modifier = Modifier.clickable {
-                deleit=0
-                openDialog.value = true
-
-
-            })
-        },
-        modifier = Modifier
-            .height(56.dp)
-            .fillMaxWidth()
-            .padding(top = 4.dp)
-
-    )
-
-    }
 }
-
-
-
-
-
-

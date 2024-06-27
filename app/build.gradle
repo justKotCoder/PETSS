@@ -70,6 +70,7 @@ dependencies {
 
     //Corutines
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+    implementation 'androidx.compose.material3:material3-android:1.2.1'
 
     //Tests
     testImplementation 'junit:junit:4.13.2'

@@ -204,8 +204,8 @@ fun PewStartScreen() {
 @Composable
 fun EnterEmailText() {
     Text(
-        text = "Добро Пожаловать",
-        fontSize = 28.sp,
+        text = "Введите почту",
+        fontSize = 14.sp,
         color = colorResource(id = R.color.color_tema)
     )
 }

@@ -109,7 +109,7 @@ fun PassportBar(navController: NavController) {
                         tint =if (navController.currentBackStackEntry?.destination?.route== NavRoute.Passport_Clendar.route){
                             Color.Blue}else{
                             Color.White})
-                }
+                 }
                 Box(
                     Modifier
                         .padding(top = 2.dp)

@@ -20,11 +20,11 @@
     <color name="color_tema">#033957</color>
     <color name="Error">#FFD6D6</color>
     //Общие
-    <color name="bar">#353535</color>
+    <color name="bar">#033957</color>
     <color name="font_edit">#99000000</color>
     //Tema 1
     <color name="fon">#99349BD6</color>
-    <color name="Activ_Button">#349BD6</color>
+    <color name="Activ_Button">#4378FF</color>
     <color name="color_text">#0A4C71</color>
     <color name="Pynctir">#B2349BD6</color>
     <color name="colorWindowPets">#F271BAE3</color>
