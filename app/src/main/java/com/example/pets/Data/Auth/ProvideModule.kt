@@ -1,27 +1,19 @@
 package com.example.pets.Data.Auth
 
+
 import com.example.pets.Data.Auth.SignIn.SignInRepositoryImpl
-import com.example.pets.Data.Auth.SignUp.SignUpRepositoryImpl
+import com.example.pets.Domain.Auth.SignIn.SignInRepository
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-
-
-//That module provides repositories implementation
+// This module provides repositories implementation
 @Module
 @InstallIn(SingletonComponent::class)
-object ProvideModule {
-    @Provides
-    fun provideRegistrationImpl() : SignUpRepositoryImpl {
-        return SignUpRepositoryImpl
-    }
+abstract class ProvideModule {
 
-    @Provides
-    fun provideSignInRepositoryImpl() : SignInRepositoryImpl {
-        return SignInRepositoryImpl
-    }
-
-
-
+    @Binds
+    abstract fun bindSignInRepository(
+        SignInRepositoryImpl: SignInRepositoryImpl
+    ): SignInRepository
 }

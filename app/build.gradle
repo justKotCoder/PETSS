@@ -13,7 +13,7 @@ android {
     compileSdk 34
     defaultConfig {
         applicationId "com.example.pets"
-        minSdk 24
+        minSdk 26
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -71,6 +71,9 @@ dependencies {
     //Corutines
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
     implementation 'androidx.compose.material3:material3-android:1.2.1'
+    implementation 'org.postgresql:postgresql:42.7.3'
+    implementation 'org.mindrot:jbcrypt:0.4'
+    implementation 'com.sun.mail:javax.mail:1.6.2'
 
     //Tests
     testImplementation 'junit:junit:4.13.2'
