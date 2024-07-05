@@ -14,7 +14,9 @@ import java.sql.SQLException
 class DatabaseConnectionManager {
 
     companion object {
-        private const val DB_URL ="jdbc:postgresql://192.168.1.95:5432/pet_passport_db?connectTimeout=10&socketTimeout=10"
+        // Вписать айпи ПК, на котором запущена БД. (ipconfig в cmd)
+        // В будущем сделать автоматическую адресацию на удаленный сервер.
+        private const val DB_URL ="jdbc:postgresql://10.0.0.104:5432/pet_passport_db?connectTimeout=10&socketTimeout=10"
         private const val USER = "pet_passport_user"
         private const val PASS = "1234"
     }

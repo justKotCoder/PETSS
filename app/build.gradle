@@ -7,7 +7,6 @@ plugins {
     id 'com.google.dagger.hilt.android'
 }
 
-
 android {
     namespace 'com.example.pets'
     compileSdk 34
@@ -51,31 +50,37 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.12"
     }
-
-
 }
 
 dependencies {
-    // kotlin/android
+    // Kotlin and Android core
     implementation 'androidx.core:core-ktx:1.9.0'
 
-    //Jetpack Compose
+    // Jetpack Compose
     implementation 'androidx.activity:activity-compose:1.7.0'
     implementation "androidx.compose.ui:ui:1.4.0"
     implementation "androidx.compose.ui:ui-tooling-preview:1.4.0"
     implementation 'androidx.compose.material:material:1.4.0'
 
-    //Room
+    // Room
     implementation 'androidx.room:room-common:2.5.1'
 
-    //Corutines
+    // Coroutines
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
     implementation 'androidx.compose.material3:material3-android:1.2.1'
+
+    // PostgreSQL Drivers
     implementation 'org.postgresql:postgresql:42.7.3'
+    implementation 'com.impossibl.pgjdbc-ng:pgjdbc-ng:0.8.9'
+    implementation 'javax.naming:javax.naming-api:1.0'
+
+    // BCrypt
     implementation 'org.mindrot:jbcrypt:0.4'
+
+    // JavaMail
     implementation 'com.sun.mail:javax.mail:1.6.2'
 
-    //Tests
+    // Testing
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -83,34 +88,23 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:1.4.0"
     debugImplementation "androidx.compose.ui:ui-test-manifest:1.4.0"
 
-    //Ktor
+    // Ktor
     def ktor_version = "2.3.10"
     implementation("io.ktor:ktor-client-core:$ktor_version")
     implementation("io.ktor:ktor-client-cio:$ktor_version")
     implementation("io.ktor:ktor-client-android:$ktor_version")
-    implementation("io.ktor:ktor-client-android:$ktor_version")
     implementation("io.ktor:ktor-serialization-gson:$ktor_version")
-    implementation("io.ktor:ktor-client-android:$ktor_version")
 
-    //Supabase
-    def supabase_version = "2.3.0"
-    implementation platform("io.github.jan-tennert.supabase:bom:$supabase_version")
-    implementation "io.github.jan-tennert.supabase:postgrest-kt:'$supabase_version"
+    // Serialization
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1"
 
-    //serialization
-    implementation "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
-
-    //navigation
+    // Navigation
     def nav_version = "2.7.7"
     implementation "androidx.navigation:navigation-compose:$nav_version"
     implementation 'androidx.navigation:navigation-runtime-ktx:2.5.3'
-    implementation "androidx.navigation:navigation-compose:2.5.3"
 
-    //Dagger:Hilt
+    // Dagger Hilt
     implementation 'com.google.dagger:hilt-android:2.51.1'
     implementation 'androidx.hilt:hilt-navigation-compose:1.0.0-alpha03'
     kapt 'com.google.dagger:hilt-compiler:2.51.1'
-
-
-
 }
