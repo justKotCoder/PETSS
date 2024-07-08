@@ -43,8 +43,8 @@ fun PetsNavHost() {
 
     //SignIn viewModel
     val signInViewModel: SignInViewModel = hiltViewModel()
-
-    NavHost(navController = navController, startDestination = NavRoute.SignIn.route ){
+ // todo start был на SignIn
+    NavHost(navController = navController, startDestination = NavRoute.Passport_Edit.route ){
         composable(NavRoute.Start.route){
             Main()
         }
@@ -73,10 +73,10 @@ fun PetsNavHost() {
             Password_Recovery_3(navController = navController)
         }
         composable(NavRoute.Passport.route){
-            Passport(navController = navController)
+            PetPassport(navController = navController)
         }
         composable(NavRoute.Passport_Edit.route){
-            Passport_Edit(navController = navController)
+            PetPassportEdit(navController = navController)
         }
         composable(NavRoute.Shoping.route){
             Shoping(navController = navController)

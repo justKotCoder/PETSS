@@ -5,22 +5,19 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="PreviewMyScreen">
+      <SelectionState runConfigName="PreviewPassport_Edit">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainAccount">
+      <SelectionState runConfigName="GenderSwitcherPreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="PETSS.Pets.app">
+      <SelectionState runConfigName="TogglePreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainActivity">
+      <SelectionState runConfigName="AgesContextMenuPreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainActivity (1)">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="viewRegistration5">
+      <SelectionState runConfigName="PreviewPassportEdit">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

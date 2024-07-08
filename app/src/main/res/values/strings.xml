@@ -1,4 +1,26 @@
 <resources>
     <string name="app_name">Pets</string>
     <string name="code_delivered">Мы выслали вам на почту шестизначный код. Если он не пришел в течении минуты - запросите повторное письмо для подтверждения.</string>
+
+    <!-- PetPassportEdit-->
+    <string name="pet_passport_edit_header">Профиль Питомца</string>
+    <string name="pet_name">Имя</string>
+        <!-- add photo -->
+        <string name="add_pet_photo">Добавить фотографию</string>
+        <string name="content_description_expanded_photos">Развернуть (/ свернуть) ряд фотографий</string>
+
+        <!-- AgeContextMenu-->
+        <string name="content_description_expanded_ages">Развернуть (/ свернуть) список возрастов</string>
+
+    <string name="pet_breed">Порода</string>
+    <string name="pet_age">Возраст</string>
+
+        <!-- Gender -->
+        <string name="gender">Пол</string>
+        <string name="male">Самец</string>
+        <string name="female">Самка</string>
+
+    <string name="number_of_chip">Номер чипа</string>
+    <string name="pet_description">Описание</string>
+    <string name="save_changes">Сохранить изменения</string>
 </resources>

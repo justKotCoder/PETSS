@@ -108,12 +108,3 @@ fun viewRegistration5(){
         StartScreen(navController = rememberNavController())
     }
 }
-
-
-
-
-
-
-
-
-

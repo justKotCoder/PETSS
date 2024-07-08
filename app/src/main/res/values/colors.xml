@@ -19,6 +19,7 @@
 
     <color name="color_tema">#033957</color>
     <color name="Error">#FFD6D6</color>
+
     //Общие
     <color name="bar">#033957</color>
     <color name="font_edit">#99000000</color>
@@ -29,4 +30,7 @@
     <color name="Pynctir">#B2349BD6</color>
     <color name="colorWindowPets">#F271BAE3</color>
     <color name="colorTextField">#D9D9D980</color>
+
+
+    <color name="gr">#D9DCDCD2</color>
 </resources>
